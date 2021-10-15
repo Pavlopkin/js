@@ -1,9 +1,8 @@
 /*---------------variables globales ingresadas por el usuario------------------*/
-let mora = prompt("ingrese la fecha de mora \n **/**/****");
-let fechaLiquidacion = prompt("ingrese la fecha a la que actualiza la deuda \n **/**/****");
-let deuda = parseInt(prompt('ingrese el monto de la deuda'));
-let tasa = parseFloat(prompt("ingrese la tasa aplicable"));
+
 /*-----------------inicializando variables globales que se utilizan en funciones--------*/
+let tasa = 0;
+let dias = 0;
 let intereses = 0;
 let punitorios = 0;
 let tasaJ = 0;
@@ -11,23 +10,17 @@ let sobreTasa = 0;
 let gastos = 0;
 let iva = 0;
 let sub = 0;
+let deuda = 0;
+let mora = 0;
+let fechaLiquidacion = 0;
 /*-------------------calculo de diferencia de dias-----------------------------*/
 /*--------------se podría utilizar una función para comparar fechas y evitar errores-----*/
-let diaUno = new Date(mora);
-let diaDos = new Date(fechaLiquidacion);
-let difference= Math.abs(diaDos-diaUno);
-dias = difference/(1000 * 3600 * 24)
+
 /*///////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////CÓDIGO QUE SE EJECUTA//////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////*/
-document.write("Capital_________________________________$" + deuda + "<br>");
-intCompensatorios();
-intPunitorios();
-calculoIVA();
-sTotal();
-tasaJusticia();
-totalGastos();
-totalLiquidacion();
+liquidacion();
+
 /*------------------------Intereses Compensatorios-----------------------*/
 function intCompensatorios(){
     let porcentaje = tasa / 100;
@@ -114,5 +107,31 @@ function totalGastos(){
     else{
         gastos = sobreTasa + tasaJ;
         document.write("GASTOS (Tasa de Justicia + Sobre Tasa)_________________$" + gastos.toFixed(2) + "<br>");
+    }
+}
+/*----------liquidacion---------*/
+function liquidacion(){
+    let control = prompt("¿desea calcular una liquidación?");
+    
+    if ((control == "SI") || (control == "Si") || (control == "si")){
+        mora = prompt("ingrese la fecha de mora \n MM/DD/AAAA");
+        fechaLiquidacion = prompt("ingrese la fecha a la que actualiza la deuda \n MM/DD/AAAA");
+        deuda = parseInt(prompt('ingrese el monto de la deuda'));
+        tasa = parseFloat(prompt("ingrese la tasa aplicable"));
+        let diaUno = new Date(mora);
+        let diaDos = new Date(fechaLiquidacion);
+        let difference= Math.abs(diaDos-diaUno);
+        dias = difference/(1000 * 3600 * 24)
+        document.write("Capital_________________________________$" + deuda + "<br>");
+        intCompensatorios();
+        intPunitorios();
+        calculoIVA();
+        sTotal();
+        tasaJusticia();
+        totalGastos();
+        totalLiquidacion();
+    }
+    else{
+        alert("si quiere realizar un nuevo cálculo presione f5");
     }
 }
