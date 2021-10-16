@@ -22,8 +22,9 @@ function usuario(user, pass, edad, nivel, correo) {
     this.correo= correo;
     this.firma = function(){document.write("<br> <br> calculo realizado por " + user)}
     this.contraseña = function(){ if (pass == validacionDos){
-        alert("Bienvenido " +  user);
-    }
+        alert("Bienvenid@ " +  user);
+        liquidacion();
+        }
         else{
             alert("usuario incorrecto")
         }    
@@ -38,17 +39,14 @@ let validacionDos = prompt("ingrese su contraseña");
 switch (validacion){
     case usuario1.user:
         usuario1.contraseña();
-        liquidacion();
         usuario1.firma();
         break;
     case usuario2.user:
         usuario2.contraseña();
-        liquidacion();
         usuario2.firma();
         break;
     case usuario3.user:
         usuario3.contraseña();
-        liquidacion();
         usuario3.firma();
         break;
     default:
@@ -57,21 +55,19 @@ switch (validacion){
 /*///////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////FUNCIONES//////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////*/
-
-
 /*------------------------Intereses Compensatorios-----------------------*/
 function intCompensatorios(){
     let porcentaje = tasa / 100;
     let tiempo = dias / 365;
     intereses = deuda  * porcentaje *  tiempo;
-    document.write("Interes compensatorio desde " + mora + " hasta " + fechaLiquidacion + "<br> (TNA " + tasa + "%)____________________________$" + intereses.toFixed(2) + "<br>");
+    document.write("<p>Interes compensatorio desde " + mora + " hasta " + fechaLiquidacion + "<br> (TNA " + tasa + "%)</p>" + "<p>" + intereses.toFixed(2) + "</p><br>");
 }
 /*------------------------Intereses Punitorios-----------------------*/
 function intPunitorios(){
     let controlUno = prompt("¿desea incorporar intereses punitorios? \n Ingrese 'SI' para confirmar");
     if ((controlUno == "SI") || (controlUno == "Si") || (controlUno == "si")){
         punitorios = intereses * 0.5;
-        document.write("Intereses Punitorios (50% de los compensatorios)$" + punitorios.toFixed(2) + "<br>");
+        document.write("<p> Intereses Punitorios (50% de los compensatorios)</p>" + "<p> $" + punitorios.toFixed(2) + "</p><br>");
     }
     else{
         punitorios;
@@ -82,7 +78,7 @@ function calculoIVA(){
     let controlDos = prompt("¿desea calcular el IVA? \n Ingrese 'SI' para confirmar");
     if ((controlDos == "SI") || (controlDos == "Si") || (controlDos == "si")){
         iva = ((intereses+punitorios) * 0.21);
-        document.write("IVA sobre intereses______________________$" + iva.toFixed(2) + "<br>");
+        document.write("<p> IVA sobre intereses </p>" + "<p> $" + iva.toFixed(2) + "</p><br>");
     }
     else{
         iva;
@@ -91,12 +87,12 @@ function calculoIVA(){
 /*------------------------Intereses subtotal-----------------------*/
 function sTotal(){
     sub = (deuda + intereses + punitorios + iva);
-    document.write("Subtotal_____________________________$"+ sub.toFixed(2) + "<br>");
+    document.write("<p> Subtotal </p>"+ "<p>$ " + sub.toFixed(2) + "</p><br>");
 }
 /*------------------------Calcula el total de la Liquidacion-----------------------*/
 function totalLiquidacion(){
     tot = sub + gastos;
-    document.write("TOTAL________________________________$" + tot.toFixed(2));
+    document.write("<p>TOTAL</p>" + "<p>" + tot.toFixed(2) + "</p><br>");
 }
 /*//////////////////////////////////////////////////////////////////////
 ////////////////////////GASTOS/////////////////////////////////////////
@@ -140,11 +136,11 @@ function sTasa(){
 function totalGastos(){
     if (sobreTasa == 0){
         gastos = tasaJ;
-        document.write("GASTOS (Tasa de Justicia)_____________________$" + gastos.toFixed(2) + "<br>");
+        document.write("<p> GASTOS (Tasa de Justicia)</p>" + "<p> $" + gastos.toFixed(2) + "</p><br>");
     }
     else{
         gastos = sobreTasa + tasaJ;
-        document.write("GASTOS (Tasa de Justicia + Sobre Tasa)_________________$" + gastos.toFixed(2) + "<br>");
+        document.write("<p> GASTOS (Tasa de Justicia + Sobre Tasa)</p>" + "<p> $" + gastos.toFixed(2) + "</p><br>");
     }
 }
 /*----------liquidacion---------*/
@@ -160,7 +156,7 @@ function liquidacion(){
         let diaDos = new Date(fechaLiquidacion);
         let difference= Math.abs(diaDos-diaUno);
         dias = difference/(1000 * 3600 * 24)
-        document.write("Capital_________________________________$" + deuda + "<br>");
+        document.write("<p> Capital</p>" + deuda + "<br>");
         intCompensatorios();
         intPunitorios();
         calculoIVA();
