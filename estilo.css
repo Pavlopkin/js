@@ -9,8 +9,8 @@ body{
     width: 100%;
 }
 .container{
-    width: 100%;
-    
+    width: 97%;
+    margin: auto;
     height: auto;
     background: linear-gradient(352deg, rgba(0,181,255,1) 0%, rgba(158,187,207,1) 39%, rgba(8,65,161,1) 100%);  
 }

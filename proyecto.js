@@ -1,5 +1,3 @@
-/*---------------variables globales ingresadas por el usuario------------------*/
-
 /*-----------------inicializando variables globales que se utilizan en funciones--------*/
 let tasa = 0;
 let dias = 0;
@@ -13,13 +11,53 @@ let sub = 0;
 let deuda = 0;
 let mora = 0;
 let fechaLiquidacion = 0;
-/*-------------------calculo de diferencia de dias-----------------------------*/
-/*--------------se podría utilizar una función para comparar fechas y evitar errores-----*/
+/*/////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////OBJETOS - VALIDACIÓN DE USUARIO - //////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////*/
+function usuario(user, pass, edad, nivel, correo) {
+    this.user= user;
+    this.pass= pass;
+    this.edad= edad;
+    this.nivel= nivel;
+    this.correo= correo;
+    this.firma = function(){document.write("<br> <br> calculo realizado por " + user)}
+    this.contraseña = function(){ if (pass == validacionDos){
+        alert("Bienvenido " +  user);
+    }
+        else{
+            alert("usuario incorrecto")
+        }    
+    }
+}
+const usuario1 = new usuario("pablo", "1234", "37", "admin", "gomezpablor@gmail.com");
+const usuario2 = new usuario("juan", "5678", "45", "usuario", "usuario@gmail.com");
+const usuario3 = new usuario("florencia", "4321", "35", "usuario", "usuario2@gmail.com");
 
+let validacion = prompt("ingrese su nombre");
+let validacionDos = prompt("ingrese su contraseña");
+switch (validacion){
+    case usuario1.user:
+        usuario1.contraseña();
+        liquidacion();
+        usuario1.firma();
+        break;
+    case usuario2.user:
+        usuario2.contraseña();
+        liquidacion();
+        usuario1.firma();
+        break;
+    case usuario3.user:
+        usuario3.contraseña();
+        liquidacion();
+        usuario1.firma();
+        break;
+    default:
+        alert("Usuario incorrecto, \n Vuelva a intentarlo");
+}
 /*///////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////CÓDIGO QUE SE EJECUTA//////////////////////////////////////
+///////////////////////////FUNCIONES//////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////*/
-liquidacion();
+
 
 /*------------------------Intereses Compensatorios-----------------------*/
 function intCompensatorios(){
