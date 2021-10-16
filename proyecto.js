@@ -44,12 +44,12 @@ switch (validacion){
     case usuario2.user:
         usuario2.contraseña();
         liquidacion();
-        usuario1.firma();
+        usuario2.firma();
         break;
     case usuario3.user:
         usuario3.contraseña();
         liquidacion();
-        usuario1.firma();
+        usuario3.firma();
         break;
     default:
         alert("Usuario incorrecto, \n Vuelva a intentarlo");
