@@ -8,8 +8,7 @@
     }
     .usuarios{
         display: none;
-    }
-   
+    }  
 }
 body{
     background-color: rgb(0, 0, 0);
@@ -49,6 +48,12 @@ h3{
 .cabecera{
     height: 100px;
     background-color: rgba(3, 1, 1, 0.493);
+}
+.cabecera a{
+    margin: 25px;
+   
+    color: burlywood;
+    
 }
 h1{
     font-size: 2em;  
@@ -108,4 +113,14 @@ h2{
 span{
     font-weight: 900;
     color: rgb(155, 35, 6);
+}
+/*////////////////////////datos.html//////////////////////////////////////*/
+.datos{
+    width: 90%;
+    height: auto;
+    margin: auto;
+    background-color: blanchedalmond;
+    color: brown;
+    text-align: center;
+    padding: 50px;
 }

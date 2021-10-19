@@ -20,9 +20,9 @@ function usuario(user, pass, edad, nivel, correo) {
     this.edad= edad;
     this.nivel= nivel;
     this.correo= correo;
-    this.firma = function(){document.write("<br> <br> calculo realizado por " + user)}
+    this.firma = function(){document.write("<br> <br>" + " calculo realizado por " + user)}
     this.contraseña = function(){ if (pass == validacionDos){
-        alert("Bienvenid@ " +  user);
+        alert(" Bienvenid@ " +  user);
         liquidacion();
         }
         else{
