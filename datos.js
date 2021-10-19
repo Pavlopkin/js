@@ -38,8 +38,8 @@ for (const contribuyente of contribuyentes){
 
 let = estados = prompt("Ingrese el estado por el cual quiere filtrar los casos");
 
+document.write("__________________________________________________________________________<br>Estos son los casos en estado " + estados + "<br><br><br>")
 const estadoCasos = contribuyentes.filter(contribuyente => contribuyente.estado === estados);
 for(contribuyente of estadoCasos){
-    document.write("Estado: " + estados + "<br>");
-    document.write(contribuyente.nombre + "<br>");
+    document.write(contribuyente.id + " - " + contribuyente.nombre + "<br>");
 }
