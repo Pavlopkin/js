@@ -11,6 +11,7 @@ let sub = 0;
 let deuda = 0;
 let mora = 0;
 let fechaLiquidacion = 0;
+let tot = 0;
 /*/////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////OBJETOS - VALIDACIÓN DE USUARIO - //////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////*/
@@ -65,7 +66,7 @@ function intCompensatorios(){
 /*------------------------Intereses Punitorios-----------------------*/
 function intPunitorios(){
     let controlUno = prompt("¿desea incorporar intereses punitorios? \n Ingrese 'SI' para confirmar");
-    if ((controlUno == "SI") || (controlUno == "Si") || (controlUno == "si")){
+    if (controlUno.toUpperCase() == "SI") {
         punitorios = intereses * 0.5;
         document.write("<p> Intereses Punitorios (50% de los compensatorios)</p>" + "<p> $" + punitorios.toFixed(2) + "</p><br>");
     }
@@ -76,7 +77,7 @@ function intPunitorios(){
 /*------------------------Intereses IVA-----------------------*/
 function calculoIVA(){
     let controlDos = prompt("¿desea calcular el IVA? \n Ingrese 'SI' para confirmar");
-    if ((controlDos == "SI") || (controlDos == "Si") || (controlDos == "si")){
+    if (controlDos.toUpperCase() == "SI"){
         iva = ((intereses+punitorios) * 0.21);
         document.write("<p> IVA sobre intereses </p>" + "<p> $" + iva.toFixed(2) + "</p><br>");
     }
@@ -124,8 +125,7 @@ function tasaJusticia(){
 /*----------Sobre Tasa de Justicia (aplica solo en Tasa Pcia---------*/
 function sTasa(){
     let controlTres = prompt("¿desea calcular la sobre Tasa? \n Ingrese 'SI' para confirmar");
-
-    if ((controlTres == "SI") || (controlTres == "Si") || (controlTres == "si")){
+    if (controlTres.toUpperCase() == "SI"){
         sobreTasa = tasaJ * 0.1;
     }
     else{
@@ -146,8 +146,7 @@ function totalGastos(){
 /*----------liquidacion---------*/
 function liquidacion(){
     let control = prompt("¿desea calcular una liquidación?");
-    
-    if ((control == "SI") || (control == "Si") || (control == "si")){
+    if (control.toUpperCase() == "SI"){
         mora = prompt("ingrese la fecha de mora \n MM/DD/AAAA");
         fechaLiquidacion = prompt("ingrese la fecha a la que actualiza la deuda \n MM/DD/AAAA");
         deuda = parseInt(prompt('ingrese el monto de la deuda'));
