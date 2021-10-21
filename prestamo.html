@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
     <script src="./js/login.js"></script>
-    <title>Control de Casos</title>
+    <title>Calculadora de Cuotas</title>
 </head>
 <body>
     <div class="container">
@@ -45,9 +45,27 @@
         </header>
         <div class="contenido">
             <section class="liquidacion">
-                <h1>Control de Casos Judiciales</h1>
+                <H1 class="titulos">Cálculo de cuotas (con y sin interés)</H1>
                 <div class="liquidacion__hoja">
-                    <script src="./js/datos.js"></script>
+                    <ul>
+                        <li class="liquidacion__subTitulos">Sin interes
+                            <ul>
+                                <li>3 cuotas</li>
+                                <li>6 cuotas</li>
+                                <li>9 cuotas</li>
+                                <li>12 cuotas</li>
+                            </ul>
+                        </li>
+                        <li class="liquidacion__subTitulos">Con interes
+                            <ul>
+                                <li>18 cuotas (Tasa 25%)</li>
+                                <li>24 cuotas (Tasa 38%)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div onload="nuevoContenido()" class="imprime">
+                        <script src="./js/prestamo.js"></script>
+                    </div> 
                 </div>
             </section>
         </div>
@@ -57,3 +75,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
 </body>
 </html>
+

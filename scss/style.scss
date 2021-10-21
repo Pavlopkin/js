@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: black;
+}
+.container{
+    width: 99%;
+    max-width: 1150px;
+    height: auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header{
+    width: 100%;
+    height: 70px;
+    display: flex;
+}
+.titulos{
+    color: black;
+    text-shadow: white 2px 2px;
+}
+.menu{
+    width: 90%;
+}
+.menuDerecha{
+    width: 10%;
+    text-align: center;
+    padding-top: 10px;
+}
+.contenido{
+    width: 100%;
+    height: auto;
+    min-height: 600px;
+    background: linear-gradient(352deg, rgba(0,181,255,1) 0%, rgba(158,187,207,1) 39%, rgba(8,65,161,1) 100%);  
+    padding: 80px;
+    box-sizing: border-box;
+    .contenido__presentacion{
+        width: 50%;
+        height: 350px;
+        background-color: rgba(255, 255, 255, 0.493);
+        border-radius: 25%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    .contenido__mensaje{
+        color: rgb(255, 255, 255);
+        font-size: 2em;
+        font-weight: 800;
+        font-family: Arial, Helvetica, sans-serif;
+        text-shadow: black 2px 2px;
+        text-align: center;
+    }
+}
+.imprime{
+    margin-top: 50px;
+}
+.liquidacion{
+    width: 80%;
+    height: auto;
+    margin: auto;
+    padding: 25px;
+    background-color: rgba(240, 255, 240, 0.452);
+    text-align: center;
+    box-sizing: border-box;
+    .liquidacion__titulo{
+        text-align: center;
+        text-shadow: white 2px 2px;
+    }
+    .liquidacion__hoja{
+        background-image: url(../assets/cuadricula.jpg);
+        width: 90%;
+        height: auto;
+        min-height: 200px;
+        margin: 20px auto;
+        padding: 50px 20px;
+        box-sizing: border-box;
+        p{
+            display: inline-block;
+            margin: 5px 20px;
+        }
+    }
+    .liquidacion__boton{
+        padding: 10px;
+        font-weight: 700;
+        border-radius: 15%;
+    }
+    .liquidacion__subTitulos{
+        list-style: none;
+        font-weight: 800;
+        text-align: center;
+        display: block;
+        li{
+            list-style: none;
+            text-align: center;
+            font-weight: 600;
+            margin: 10px 0px 10px -25px;
+        }
+    }
+}
+.nota{
+    margin-top: 50px;
+    .nota__lista{
+        list-style: none;
+        font-weight: 600;
+    }
+}
+.footer{
+    width: 100%;
+    height: 80px;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}

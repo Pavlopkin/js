@@ -1,50 +1,57 @@
 <!DOCTYPE html>
-    <html lang="es">
-<head> 
+<html lang="es">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
-    
-    
-    <link href="estilo.css" rel="stylesheet" type="text/css">
-    <title>Simulador interactivo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="./css/style.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+    <script src="./js/login.js"></script>
+    <title>Simulador Interactivo</title>
 </head>
 <body>
     <div class="container">
-        <header class="cabecera flex">
-            <h1>Simulador interactivo</h1>
-            <a href="datos.html" title="Proximamente: desafio Array">Control de casos</a>
-        </header>
-        <div class="contenedorPrincipal">
-            <section class="contenido">
-                <H2>Liquidación Judicial con Tasa fija anual</H2>
-                <div class="hoja">
-                    <script src="proyecto.js"></script>
-                    
-                </div>
-                <button class="boton" type="button" onclick="javascript:window.print()">Imprimir</button>
-                
-            </section> 
-            <div class="usuarios">
-                <H3>Usuarios ingresados al sistema</H2>
-                <p>User: pablo / Pass: 1234 <br>User: juan / Pass: 5678 <br> User: florencia / pass: 4321</p>
+        <header class="header bg-dark">
+            <div class="menu">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="index.html">Simulador Interactivo</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                        <li><a class="dropdown-item" href="liquidacion.html">Liquidación Judicial</a></li>
+                                        <li><a class="dropdown-item" href="tasa.html">Tasa de Justicia</a></li>
+                                        <li><a class="dropdown-item" href="prestamo.html">Simulador de Cuotas</a></li>
+                                        <li><a class="dropdown-item" href="datos.html">Seguimiento de Casos</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </div>
-            <aside class="nota">
-                <ul>
-                    <li>INCLUYE LOS SIGUIENTES RUBROS:</li>
-                    <li><span>Capital:</span> rubro fijo ingresado por el  usuario</li>
-                    <li><span>Interés compensatorio:</span> reultante de la tasa ingresada por el usuario y el tiempo de mora</li>
-                    <li><span>Interés punitorio:</span> 5% compensatorios (aplicación opcional) </li>
-                    <li><span>IVA sobre intereses:</span> 21% de la sumatoria de ambos intereses (aplicación opcional) </li>
-                    <li><span>Subtotal:</span> Suma los rubros anteriores sin gastos</li>
-                    <li><span>Gastos:</span> Incluye Tasa de Justicia y sobre Tasa (aplicación opcional)</li>
-                    <li><span>Total:</span> sumatora del todos los rubros de la liquidación</li>
-                </ul>
-            </aside> 
+            <div class="menuDerecha">
+                
+                <a class="btn btn-primary" href='javascript:;' onclick="login();" role="button" title="pablo - 1234 // florencia - 4321 // juan - 5678">Login</a> 
+            </div>
+            
+        </header>
+        <div class="contenido">
+            <section class="contenido__presentacion">
+                <h1 class="contenido__mensaje">PÁGINA<br>EN<br>CONSTRUCCIÓN</h1>
+
+            </section>
         </div>
-        <footer class="pie flex">
-            <p>Creado por Pablo Rodrigo Gomez</p>
-        </footer>
+        <footer class="footer bg-dark"><p>Creado por Pablo Rodrigo Gomez</p></footer> 
     </div>
-  
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
 </body>
 </html>
