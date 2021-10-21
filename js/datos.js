@@ -95,7 +95,7 @@ function ordenNombre(){
         if (a.nombre > b.nombre) {
         return 1;
         } else if (a.nombre < b.nombre) {
-        return -1;
+        return  -1;
         } 
         return 0;
     });

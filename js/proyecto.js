@@ -110,7 +110,7 @@ function liquidacion(){
     if (control.toUpperCase() == "SI"){
         mora = prompt("ingrese la fecha de mora \n MM/DD/AAAA");
         fechaLiquidacion = prompt("ingrese la fecha a la que actualiza la deuda \n MM/DD/AAAA");
-        deuda = parseInt(prompt('ingrese el monto de la deuda'));
+        deuda = parseFloat(prompt('ingrese el monto de la deuda'));
         tasa = parseFloat(prompt("ingrese la tasa aplicable"));
         let diaUno = new Date(mora);
         let diaDos = new Date(fechaLiquidacion);

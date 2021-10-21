@@ -1,3 +1,20 @@
+@keyframes aparece {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes colores {
+  0% {
+    color: #3700ff;
+    text-shadow: rgba(19, 0, 194, 0.397) 2px 2px 2px; }
+  50% {
+    color: #3270cd;
+    text-shadow: black 2px 2px 2px; }
+  100% {
+    color: #2d36b9;
+    text-shadow: rgba(255, 255, 255, 0.582) 2px 2px 2px; } }
+
 * {
   margin: 0;
   padding: 0; }
@@ -40,35 +57,47 @@ body {
     width: 50%;
     height: 350px;
     background-color: rgba(255, 255, 255, 0.493);
+    box-shadow: 11px -5px 81px 0px rgba(100, 0, 95, 0.74);
     border-radius: 25%;
     margin: auto;
     display: flex;
     align-items: center;
-    justify-content: center; }
+    justify-content: center;
+    animation-name: aparece;
+    animation-duration: 2s; }
   .contenido .contenido__mensaje {
     color: white;
     font-size: 2em;
     font-weight: 800;
     font-family: Arial, Helvetica, sans-serif;
     text-shadow: black 2px 2px;
-    text-align: center; }
+    text-align: center;
+    animation-name: colores;
+    animation-duration: 3s;
+    animation-iteration-count: infinite; }
 
 .imprime {
   margin-top: 50px; }
 
 .liquidacion {
+  animation-name: aparece;
+  animation-duration: 2s;
   width: 80%;
   height: auto;
   margin: auto;
   padding: 25px;
   background-color: rgba(240, 255, 240, 0.452);
+  box-shadow: 11px -5px 81px 0px rgba(100, 0, 95, 0.74);
   text-align: center;
   box-sizing: border-box; }
   .liquidacion .liquidacion__titulo {
     text-align: center;
     text-shadow: white 2px 2px; }
   .liquidacion .liquidacion__hoja {
+    animation-name: aparece;
+    animation-duration: 3s;
     background-image: url(../assets/cuadricula.jpg);
+    box-shadow: inset 0px 0px 15px 8px rgba(0, 0, 0, 0.6);
     width: 90%;
     height: auto;
     min-height: 200px;
