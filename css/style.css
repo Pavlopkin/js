@@ -110,7 +110,11 @@ body {
   .liquidacion .liquidacion__boton {
     padding: 10px;
     font-weight: 700;
-    border-radius: 15%; }
+    border-radius: 15%;
+    box-shadow: inset 0px 0px 8px 8px rgba(178, 74, 238, 0.6); }
+  .liquidacion .liquidacion__boton:hover {
+    background-color: rgba(27, 189, 230, 0.418);
+    transition: 2s; }
   .liquidacion .liquidacion__subTitulos {
     list-style: none;
     font-weight: 800;
