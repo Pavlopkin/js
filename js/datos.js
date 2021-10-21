@@ -42,7 +42,7 @@ inicio();
 function inicio(){
     let control = prompt("Desea ver todos los casos? \n Ingrese Si, para confirmar \n Presione enter si quiere aplicar filtros");
     if (control.toUpperCase() == "SI"){
-        listadoTotal()
+        imprimeOrden();
         document.write("---------------------------------------------");
         
     }
@@ -71,24 +71,58 @@ function filtro(){
     let porcentaje = (controlCuatro * 100) / controlTres;
     document.write("---------<br>representa el " + porcentaje.toFixed(2) + "% de los casos");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-function orden(){
+/*----------------------------------ordenador--------------------------------------------------*/
+function imprimeOrden(){
+    let variableOrden = prompt("Indique el rubro que utilizará como referencia: \n 1 para ordenar por nombre \n 2 para ordenar por gestor \n 3 para ordenar por estado")
+    switch (variableOrden){
+        case "1":
+            ordenNombre();
+            break;
+        case "2":
+            ordenGestor();
+            break;
+        case "3":
+            ordenEstado();
+            break;
+        default:
+            alert("Opción incorrecta, se imprime de acuerdo al orden en que se ingresaron los casos");
+            listadoTotal()
+    }    
+}
+/*---------------------------------------------filtro por nombre------------------------------------*/
+function ordenNombre(){
     contribuyentes.sort(function(a,b) {
         if (a.nombre > b.nombre) {
         return 1;
         } else if (a.nombre < b.nombre) {
+        return -1;
+        } 
+        return 0;
+    });
+    for (const contribuyente of contribuyentes){
+        document.write(contribuyente.id + " - " + contribuyente.nombre + " - " + contribuyente.gestor + " - " + contribuyente.estado + " - " + contribuyente.observaciones + "<br><br>");
+        }
+}
+/*---------------------------------------------filtro por gestor------------------------------*/
+function ordenGestor(){
+    contribuyentes.sort(function(a,b) {
+        if (a.gestor > b.gestor) {
+        return 1;
+        } else if (a.gestor < b.gestor) {
+        return -1;
+        } 
+        return 0;
+    });
+    for (const contribuyente of contribuyentes){
+        document.write(contribuyente.id + " - " + contribuyente.nombre + " - " + contribuyente.gestor + " - " + contribuyente.estado + " - " + contribuyente.observaciones + "<br><br>");
+        }
+}
+/*-------------------------------------------filtro por estado----------------------------------*/
+function ordenEstado(){
+    contribuyentes.sort(function(a,b) {
+        if (a.estado > b.estado) {
+        return 1;
+        } else if (a.estado < b.estado) {
         return -1;
         } 
         return 0;
