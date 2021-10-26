@@ -31,8 +31,9 @@ body {
 
 .header {
   width: 100%;
-  height: 70px;
-  display: flex; }
+  height: auto;
+  display: flex;
+  flex-wrap: wrap; }
 
 .titulos {
   color: black;
@@ -75,6 +76,9 @@ body {
     animation-name: colores;
     animation-duration: 3s;
     animation-iteration-count: infinite; }
+
+.contenido--datos {
+  padding: 80px 10px; }
 
 .imprime {
   margin-top: 50px; }
@@ -126,6 +130,9 @@ body {
       font-weight: 600;
       margin: 10px 0px 10px -25px; }
 
+.liquidacion--datos {
+  width: 98%; }
+
 .nota {
   margin-top: 50px; }
   .nota .nota__lista {
@@ -138,3 +145,83 @@ body {
   color: white;
   text-align: center;
   padding: 30px; }
+
+.prueba {
+  width: 500px;
+  height: 100px;
+  background-color: red; }
+
+.submenu {
+  width: 100%;
+  height: 50px;
+  color: white; }
+
+#usuario {
+  display: flex;
+  list-style: none;
+  padding-top: 10px; }
+  #usuario li {
+    margin-right: 25px;
+    animation-name: aparece;
+    animation-duration: 2s; }
+
+#cambia {
+  width: 350px;
+  height: 300px;
+  margin-left: 27%;
+  position: fixed;
+  text-align: center; }
+
+.flotante {
+  width: 90%;
+  height: 250px;
+  background-color: rgba(255, 255, 255, 0.925);
+  box-shadow: 2px 4px 35px 30px rgba(13, 164, 176, 0.84) inset;
+  color: #130047;
+  font-weight: 900;
+  font-size: 1em;
+  border-radius: 10%;
+  padding: 15px;
+  box-sizing: border-box;
+  text-align: center;
+  margin: auto;
+  animation-name: aparece;
+  animation-duration: 2s; }
+  .flotante span {
+    text-decoration: underline; }
+
+.cerrar {
+  color: white;
+  text-align: center;
+  margin: auto;
+  cursor: pointer;
+  font-size: 1em;
+  text-decoration: none;
+  font-weight: 800;
+  padding: 10px;
+  border: 2px black;
+  border-radius: 50%;
+  background-color: rgba(13, 164, 176, 0.84);
+  animation-name: aparece;
+  animation-duration: 2s; }
+
+.cerrar:hover {
+  color: #af0ee0;
+  transition: 1s; }
+
+#blabla {
+  background-color: violet;
+  width: 50px;
+  height: 50px; }
+
+.liquidacion__tabla {
+  margin: auto; }
+
+#impresora th {
+  border: 2px black solid;
+  padding: 2px 5px; }
+
+.tituloTabla {
+  background-color: black;
+  color: white;
+  font-size: 1.5em; }

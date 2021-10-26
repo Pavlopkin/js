@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
-    <script src="./js/login.js"></script>
     <title>Principal</title>
 </head>
 <body>
@@ -37,13 +36,17 @@
                     </div>
                 </nav>
             </div>
-            <div class="menuDerecha">
-                
+            <div  class="menuDerecha">
                 <a class="btn btn-primary" href='javascript:;' onclick="login();" role="button" title="pablo - 1234 // florencia - 4321 // juan - 5678">Login</a> 
             </div>
-            
+            <div class="submenu">
+                <ul id="usuario">
+
+                </ul>
+            </div>
         </header>
         <div class="contenido">
+            <div id="cambia"></div>
             <section class="liquidacion">
                 <H1 class="titulos">Calculadora de Tasa de Justicia</H1>
                 <div class="liquidacion__hoja">
@@ -57,6 +60,8 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/elimina.js"></script>
 </body>
 </html>
 
