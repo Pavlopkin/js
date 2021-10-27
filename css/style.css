@@ -37,7 +37,12 @@ body {
 
 .titulos {
   color: black;
-  text-shadow: white 2px 2px; }
+  text-shadow: white 2px 2px;
+  width: 100%;
+  text-align: center; }
+
+.titulos--datos {
+  margin-bottom: 25px; }
 
 .menu {
   width: 90%; }
@@ -91,7 +96,6 @@ body {
   margin: auto;
   padding: 25px;
   background-color: rgba(240, 255, 240, 0.452);
-  box-shadow: 11px -5px 81px 0px rgba(100, 0, 95, 0.74);
   text-align: center;
   box-sizing: border-box; }
   .liquidacion .liquidacion__titulo {
@@ -111,11 +115,11 @@ body {
     .liquidacion .liquidacion__hoja p {
       display: inline-block;
       margin: 5px 20px; }
+  .liquidacion .liquidacion__hoja--datos {
+    width: 98%;
+    padding: 50px 5px; }
   .liquidacion .liquidacion__boton {
-    padding: 10px;
-    font-weight: 700;
-    border-radius: 15%;
-    box-shadow: inset 0px 0px 8px 8px rgba(178, 74, 238, 0.6); }
+    padding: 5px; }
   .liquidacion .liquidacion__boton:hover {
     background-color: rgba(27, 189, 230, 0.418);
     transition: 2s; }
@@ -166,22 +170,22 @@ body {
     animation-duration: 2s; }
 
 #cambia {
-  width: 350px;
+  width: 100%;
   height: 300px;
-  margin-left: 27%;
+  margin: auto;
   position: fixed;
   text-align: center; }
 
 .flotante {
-  width: 90%;
-  height: 250px;
-  background-color: rgba(255, 255, 255, 0.925);
-  box-shadow: 2px 4px 35px 30px rgba(13, 164, 176, 0.84) inset;
-  color: #130047;
+  width: 50%;
+  height: 300px;
+  background-color: rgba(15, 94, 211, 0.925);
+  box-shadow: 2px 4px 35px 30px rgba(0, 0, 0, 0.84) inset;
+  color: white;
   font-weight: 900;
   font-size: 1em;
   border-radius: 10%;
-  padding: 15px;
+  padding: 50px 15px;
   box-sizing: border-box;
   text-align: center;
   margin: auto;
@@ -201,7 +205,7 @@ body {
   padding: 10px;
   border: 2px black;
   border-radius: 50%;
-  background-color: rgba(13, 164, 176, 0.84);
+  background-color: rgba(15, 94, 211, 0.925);
   animation-name: aparece;
   animation-duration: 2s; }
 
@@ -209,19 +213,27 @@ body {
   color: #af0ee0;
   transition: 1s; }
 
-#blabla {
-  background-color: violet;
-  width: 50px;
-  height: 50px; }
-
 .liquidacion__tabla {
   margin: auto; }
 
 #impresora th {
   border: 2px black solid;
-  padding: 2px 5px; }
+  padding: 2px 15px; }
 
 .tituloTabla {
   background-color: black;
   color: white;
   font-size: 1.5em; }
+
+.menu__datos {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 98%;
+  height: 150px;
+  background-color: blue;
+  margin: auto;
+  background-color: rgba(240, 255, 240, 0.452);
+  padding: 25px;
+  animation-name: aparece;
+  animation-duration: 2s; }

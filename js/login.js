@@ -1,12 +1,7 @@
 /*/////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////OBJETOS - VALIDACIÓN DE USUARIO - //////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////*/
-
-
-
-
 function login(){
-    
     function usuario(user, pass, edad, nivel, correo) {
         this.user= user;
         this.pass= pass;
@@ -46,11 +41,10 @@ function login(){
         }    
         
     }
-
     const usuario1 = new usuario("pablo", "1234", "37", "admin", "gomezpablor@gmail.com");
     const usuario2 = new usuario("juan", "5678", "45", "usuario", "usuario@gmail.com");
     const usuario3 = new usuario("florencia", "4321", "35", "usuario", "usuario2@gmail.com");
-
+    
     let validacion = prompt("ingrese su nombre");
     let validacionDos = prompt("ingrese su contraseña");
 
