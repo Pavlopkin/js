@@ -62,8 +62,8 @@ body{
     width: 100%;
     height: auto;
     min-height: 600px;
-    background: linear-gradient(352deg, rgba(0,181,255,1) 0%, rgba(158,187,207,1) 39%, rgba(8,65,161,1) 100%);  
-    padding: 80px;
+    background: linear-gradient(352deg, rgb(241, 241, 241) 0%, rgba(158,187,207,1) 39%, rgb(161, 235, 235) 100%);  
+    padding: 30px 10px;
     box-sizing: border-box;
     .contenido__presentacion{
         width: 50%;
@@ -90,21 +90,17 @@ body{
         animation-iteration-count: infinite;
     }
 }
-.contenido--datos{
-    padding: 80px 10px;
-}
 .imprime{
     margin-top: 50px;
 }
 .liquidacion{
     animation-name: aparece;
-    animation-duration: 2s;
+    animation-duration: 1s;
     width: 80%;
     height: auto;
     margin: auto;
     padding: 25px;
     background-color: rgba(240, 255, 240, 0.452);
-
     text-align: center;
     box-sizing: border-box;
     .liquidacion__titulo{
@@ -113,7 +109,7 @@ body{
     }
     .liquidacion__hoja{
         animation-name: aparece;
-        animation-duration: 3s;
+        animation-duration: 2s;
         background-image: url(../assets/cuadricula.jpg);
         box-shadow: inset 0px 0px 15px 8px rgba(0,0,0,0.6);
         width: 90%;
@@ -133,10 +129,7 @@ body{
         padding: 50px 5px;
     }
     .liquidacion__boton{
-    
         padding: 5px;
-      
-
     }
     .liquidacion__boton:hover{
         background-color: rgba(27, 189, 230, 0.418);
@@ -179,8 +172,7 @@ body{
 }
 .submenu{
     width: 100%;
-    height: 50px;
-    color: white;
+    height: auto;
 }
 #usuario{
     display: flex;
@@ -190,6 +182,15 @@ body{
         margin-right: 25px;   
         animation-name: aparece;     
         animation-duration: 2s;
+        color: rgb(49, 255, 255);
+        font-weight: 800;
+    }
+    img{
+        width: 30px;
+        height: 30px;
+        padding: 3px;
+        border-radius: 50%;
+        background-color: rgb(49, 255, 255);
     }
 }
 #cambia{
@@ -200,7 +201,7 @@ body{
     text-align: center;
 }
 .flotante{
-    width: 50%;
+    width: 35%;
     height: 300px;
     background-color: rgba(15, 94, 211, 0.925);
     box-shadow: 2px 4px 35px 30px rgba(0, 0, 0, 0.84) inset;
@@ -255,12 +256,11 @@ body{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    width: 98%;
-    height: 150px;
-    background-color: blue;
+    width: 100%;
+    height: auto; 
     margin: auto;
     background-color: rgba(240, 255, 240, 0.452);
-    padding: 25px;
+    padding: 10PX;
     animation-name: aparece;
-    animation-duration: 2s;
+    animation-duration: 1s;
 }

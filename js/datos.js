@@ -17,15 +17,13 @@ const contribuyentes = [
     {id:13, gestor: "PER", nombre:'SOLIZ SOLIZ MARCIAL JAIME', estado:'PEDIDO', observaciones: "SOLICITA LEVANTAMIENTO MC"},
     {id:14, gestor: "PER", nombre:'CAGLI EROL', estado:'PEDIDO', observaciones: "SOLICITA LEVANTAMIENTO MC"},
     ];
-/*------------variable global---------------------*/
-let padre = document.getElementById("impresora");
 /*//////////////////////////////////////////////////////////////////////////////////////////////////    
 ////////////////////////////////////FUNCIONES///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////*/
-
 /*--------------------------Crea la cabecera de la tabla----------------------------
 ----------------------------se ejecuta dentro de varias funciones------------------------------*/
 function cabecera(){
+    let padre = document.getElementById("impresora");
     let contenedor = document.createElement("tr");
         contenedor.innerHTML = `
                                     <th class="tituloTabla">ID</th>
@@ -38,6 +36,7 @@ function cabecera(){
 /*--------------------------Crea la estructura de la tabla html----------------------------------
 ----------------------------se ejecuta dentro de varias funciones--------------------------------------*/
 function estructuraTabla(){
+    let padre = document.getElementById("impresora");
     for (const contribuyente of contribuyentes) {
         let contenedor = document.createElement("tr");
         contenedor.innerHTML = `
@@ -48,6 +47,9 @@ function estructuraTabla(){
                                     <th>${contribuyente.observaciones}</th>`;
         padre.appendChild(contenedor);
     }
+    let contenedor = document.createElement("tr");
+        contenedor.innerHTML = `<br><br><br><br>`;
+        padre.appendChild(contenedor);
 }
 /*-------------------------imprime el listado en el orden en que se cargaron los casos-----*/
 function muestraPantalla(){
@@ -93,10 +95,9 @@ function ordenGestor(){
     });
     estructuraTabla();
 }
-/*--------elimina listado: no se usa porque una vez que borra todo no permite cargar filtros--
+/*--------elimina listado: no se usa porque una vez que borra todo no permite volver a cargar filtros--
 -----------a fin de probar el funcionamiento de la página usé location.reload()-*/
 function eliminaLista(){
     var getChild2 = document.getElementById("impresora");  
     getChild2.parentNode.removeChild(getChild2);
 }
-
