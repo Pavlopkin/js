@@ -45,12 +45,15 @@ body {
   margin-bottom: 25px; }
 
 .menu {
-  width: 90%; }
+  width: 45%; }
 
 .menuDerecha {
-  width: 10%;
+  width: 55%;
   text-align: center;
-  padding-top: 10px; }
+  padding-top: 15px;
+  display: flex; }
+  .menuDerecha label {
+    color: white; }
 
 .contenido {
   width: 100%;
@@ -81,6 +84,11 @@ body {
     animation-name: colores;
     animation-duration: 3s;
     animation-iteration-count: infinite; }
+
+.contenido--liquidacion {
+  display: flex;
+  padding: 0px;
+  justify-content: space-between; }
 
 .imprime {
   margin-top: 50px; }
@@ -220,7 +228,7 @@ body {
 .liquidacion__tabla {
   margin: auto; }
 
-#impresora th {
+#tabla th {
   border: 2px black solid;
   padding: 2px 15px; }
 
@@ -233,10 +241,49 @@ body {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  width: 100%;
+  width: 98%;
   height: auto;
   margin: auto;
   background-color: rgba(240, 255, 240, 0.452);
   padding: 10PX;
   animation-name: aparece;
-  animation-duration: 1s; }
+  animation-duration: 1s;
+  box-sizing: border-box; }
+
+.space {
+  width: 10px; }
+
+#liquidacion {
+  margin: auto;
+  background-color: white;
+  width: 94%;
+  color: black;
+  height: auto;
+  min-height: 420px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  animation-name: aparece;
+  animation-duration: 2s; }
+
+.form {
+  width: 45%;
+  background-color: rgba(255, 255, 255, 0.692);
+  padding: 25px;
+  margin: 20px;
+  height: 500px; }
+
+input {
+  margin: 15px 5px; }
+
+.fecha {
+  width: 35px; }
+
+.fechaDos {
+  width: 60px; }
+
+.numeros {
+  width: 90px; }
+
+.enfasis {
+  font-weight: 800; }

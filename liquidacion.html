@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
-    <title>Liquidación Judicial</title>
+    <title>Principal</title>
 </head>
 <body>
     <div class="container">
@@ -26,8 +26,6 @@
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
                                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                                         <li><a class="dropdown-item" href="liquidacion.html">Liquidación Judicial</a></li>
-                                        <li><a class="dropdown-item" href="tasa.html">Tasa de Justicia</a></li>
-                                        <li><a class="dropdown-item" href="prestamo.html">Simulador de Cuotas</a></li>
                                         <li><a class="dropdown-item" href="datos.html">Seguimiento de Casos</a></li>
                                     </ul>
                                 </li>
@@ -37,46 +35,76 @@
                 </nav>
             </div>
             <div  class="menuDerecha">
-                <a class="btn btn-primary" href='javascript:;' onclick="login();" role="button" title="pablo - 1234 // florencia - 4321 // juan - 5678">Login</a> 
+                <form id="formulario">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" name="usuario" class="login__casillero">
+                    <label for="contraseña">Contraseña</label>
+                    <input type="password" name="contraseña" class="login__casillero">
+                    <input type="submit" value="enviar">
+                </form>
             </div>
             <div class="submenu">
                 <ul id="usuario">
-
                 </ul>
             </div>
-        </header>   
-        <div class="contenido">
-            <div id="cambia"></div>  
-            <section class="liquidacion">
-                <H1 class="liquidacion__titulo">Liquidación Judicial con Tasa fija anual</H1>
-                <div class="liquidacion__hoja">
-                    <script src="./js/proyecto.js"></script>
-                    
-                </div>
-                <button class="liquidacion__boton" type="button" onclick="javascript:window.print()">Imprimir</button>
-            </section>  
-                 
-            <aside class="nota">
-                <ul class="nota__lista">
-                    <li>INCLUYE LOS SIGUIENTES RUBROS:</li>
-                    <li><span>Capital:</span> rubro fijo ingresado por el  usuario</li>
-                    <li><span>Interés compensatorio:</span> reultante de la tasa ingresada por el usuario y el tiempo de mora</li>
-                    <li><span>Interés punitorio:</span> 5% compensatorios (aplicación opcional) </li>
-                    <li><span>IVA sobre intereses:</span> 21% de la sumatoria de ambos intereses (aplicación opcional) </li>
-                    <li><span>Subtotal:</span> Suma los rubros anteriores sin gastos</li>
-                    <li><span>Gastos:</span> Incluye Tasa de Justicia y sobre Tasa (aplicación opcional)</li>
-                    <li><span>Total:</span> sumatora del todos los rubros de la liquidación</li>
-                </ul>
-            </aside> 
-        </div> 
+             
+        </header>
+        <div class="contenido contenido--liquidacion">
+            <form id="formularioDos" class="form">
+                <fieldset id="fechaInicio">
+                    <label for="dia">Fecha de inicio</label>
+                    <input type="text" placeholder="DD" maxlength="2" name="dia" class="fecha">
+                    <label for="mes">/</label>
+                    <input type="text" placeholder="MM" maxlength="2" name="mes" class="fecha">
+                    <label for="anio">/</label>
+                    <input type="text" placeholder="AAAA" maxlength="4" name="anio" class="fechaDos">
+                </fieldset>
+                <fieldset id="fechaFinal">
+                    <label for="dia2">Fecha final</label>
+                    <input type="text" placeholder="DD" maxlength="2" name="dia2" class="fecha">
+                    <label for="mes2">/</label>
+                    <input type="text" placeholder="MM" maxlength="2" name="mes2" class="fecha">
+                    <label for="anio2">/</label>
+                    <input type="text" placeholder="AAAA" maxlength="4" name="anio2" class="fechaDos">
+                </fieldset>
+                <fieldset id="parametrosLiquidacion">
+                    <label for="monto">Monto</label>
+                    <input type="number" step="0.01" name="monto" class="numeros">
+                    <label for="porcentaje">Porcentaje aplicado</label>
+                    <input type="number" step="0.01" name="porcentaje" class="numeros">
+                </fieldset>
+                <fieldset id="punitorios">
+                    <label for="punitorios">Intereses Punitorios</label>
+                    <input type="radio" id="radio1" name="punitorios" value="SI"> SI
+                    <input type="radio" id="radio2" name="punitorios" value="NO"> NO
+                </fieldset>
+                <fieldset id="iva">
+                    <label for="iva">IVA</label>
+                    <input type="radio" id="radio8" name="iva" value="SI"> SI
+                    <input type="radio" id="radio9" name="iva" value="NO"> NO
+                </fieldset>
+                <fieldset id="tasa">
+                    <label for="tasa">Tasa de justicia</label>
+                    <input type="radio" id="radio3" name="tasa" value="SI"> 3%
+                    <input type="radio" id="radio4" name="tasa" value="NO"> 2.2%
+                    <input type="radio" id="radio5" name="tasa" value="0"> NO APLICA
+                </fieldset>
+                <fieldset id="stasa">
+                    <label for="tasa">Sobre tasa</label>
+                    <input type="radio" id="radio6" name="stasa" value="SI"> SI
+                    <input type="radio" id="radio7" name="stasa" value="NO"> NO
+                </fieldset>               
+                <input type="submit" value="enviar" class="btnform">
+                <input type="reset" value="Borrar información">
+            </form>
+            <div class="form" id="form"></div>
+        </div>
         <footer class="footer bg-dark"><p>Creado por Pablo Rodrigo Gomez</p></footer> 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
     <script src="./js/login.js"></script>
-    <script src="./js/elimina.js"></script>
+    <script src="./js/liquidacion.js"></script>  
 </body>
 </html>
-
-
 

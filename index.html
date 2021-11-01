@@ -26,8 +26,6 @@
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
                                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                                         <li><a class="dropdown-item" href="liquidacion.html">Liquidación Judicial</a></li>
-                                        <li><a class="dropdown-item" href="tasa.html">Tasa de Justicia</a></li>
-                                        <li><a class="dropdown-item" href="prestamo.html">Simulador de Cuotas</a></li>
                                         <li><a class="dropdown-item" href="datos.html">Seguimiento de Casos</a></li>
                                     </ul>
                                 </li>
@@ -37,13 +35,19 @@
                 </nav>
             </div>
             <div  class="menuDerecha">
-                <a class="btn btn-primary" href='javascript:;' onclick="login();" role="button" title="pablo - 1234 // florencia - 4321 // juan - 5678">Login</a> 
+                <form id="formulario">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" name="usuario" class="login__casillero">
+                    <label for="contraseña">Contraseña</label>
+                    <input type="password" name="contraseña" class="login__casillero">
+                    <input type="submit" value="enviar">
+                </form>
             </div>
             <div class="submenu">
                 <ul id="usuario">
-
                 </ul>
             </div>
+             
         </header>
         <div class="contenido">
             <div id="cambia"></div>

@@ -7,8 +7,29 @@ const usuario = [
     {user: "florencia", pass:"4321", edad:"35", correo:"usuario2@gmail.com"},
 ];
 
+let formulario = document.getElementById("formulario");
+formulario.addEventListener("submit", validacion);
+
+function validacion(e){
+    e.preventDefault();
+    let formulario = e.target;
+
+  
+    ingresaNombre = formulario.children[1].value;
+    ingresaContraseña = formulario.children[3].value;
+
+    console.log(ingresaNombre);
+    console.log(ingresaContraseña);
+    login();
+    
+}
+
+let = ingresaNombre = 0;
+let = ingresaContraseña = 0;
+
+
 function login(){
-    let ingresaNombre = prompt("ingrese su nombre");
+    
     switch (ingresaNombre){
         case usuario[0].user:
             contraseña(0);
@@ -24,12 +45,12 @@ function login(){
     }  
 }
 function contraseña(x){
-    let ingresaContraseña = prompt("ingrese su contraseña"); 
+    
         
     if(usuario[x].pass===ingresaContraseña){
         imprimeEnlace();
         imprimeUsuario(x);
-        mensaje(x);
+        
     }
     else{
         alert("usuario incorrecto");

@@ -22,29 +22,46 @@ const contribuyentes = [
 //////////////////////////////////////////////////////////////////////////////////////////////////*/
 /*--------------------------Crea la cabecera de la tabla----------------------------
 ----------------------------se ejecuta dentro de varias funciones------------------------------*/
+creaNodo();
+muestraPantalla();
+function creaNodo(){
+    let padre = document.getElementById("lista");
+    let a = document.createElement("div");
+            a.innerHTML = "<table id='tabla'>"
+            padre.appendChild(a);
+}
+function eliminaDos(){
+    var getChild2 = document.getElementById("tabla");  
+    getChild2.parentNode.removeChild(getChild2);
+    creaNodo();
+}
+
 function cabecera(){
-    let padre = document.getElementById("impresora");
+    let padre = document.getElementById("tabla");
     let contenedor = document.createElement("tr");
-        contenedor.innerHTML = `
-                                    <th class="tituloTabla">ID</th>
-                                    <th class="tituloTabla">Gestor</th>
-                                    <th class="tituloTabla">Nombre</th>
-                                    <th class="tituloTabla">Estado</th>
-                                    <th class="tituloTabla">Observaciones</th>`;
+        contenedor.innerHTML = `    <tr class="imprime">
+                                    <th class="tituloTabla borra">ID</th>
+                                    <th class="tituloTabla borra">Gestor</th>
+                                    <th class="tituloTabla borra">Nombre</th>
+                                    <th class="tituloTabla borra">Estado</th>
+                                    <th class="tituloTabla borra">Observaciones</th>
+                                    </tr>`;
         padre.appendChild(contenedor);
+        document.getElementsByTagName("tr").className = "impresora";
 }
 /*--------------------------Crea la estructura de la tabla html----------------------------------
 ----------------------------se ejecuta dentro de varias funciones--------------------------------------*/
 function estructuraTabla(){
-    let padre = document.getElementById("impresora");
+    let padre = document.getElementById("tabla");
     for (const contribuyente of contribuyentes) {
         let contenedor = document.createElement("tr");
-        contenedor.innerHTML = `
+        contenedor.innerHTML = `    <tr>
                                     <th>${contribuyente.id}</th>
                                     <th>${contribuyente.gestor}</th>
                                     <th>${contribuyente.nombre}</th>
                                     <th>${contribuyente.estado}</th>
-                                    <th>${contribuyente.observaciones}</th>`;
+                                    <th>${contribuyente.observaciones}</th>
+                                    </tr>`;
         padre.appendChild(contenedor);
     }
     let contenedor = document.createElement("tr");
@@ -58,6 +75,8 @@ function muestraPantalla(){
 }
 /*--------------------------ordena el listado por Nombre-----------------------------------*/
 function ordenNombre(){
+    eliminaDos();
+    creaNodo();
     cabecera();
     contribuyentes.sort(function(a,b) {
         if (a.nombre > b.nombre) {
@@ -71,6 +90,8 @@ function ordenNombre(){
 }
 /*--------------------------ordena el listado por Estado-----------------------------------*/
 function ordenEstado(){
+    eliminaDos();
+    creaNodo();
     cabecera();
     contribuyentes.sort(function(a,b) {
         if (a.estado > b.estado) {
@@ -84,6 +105,8 @@ function ordenEstado(){
 }
 /*--------------------------ordena el listado por gestor-----------------------------------*/
 function ordenGestor(){
+    eliminaDos();
+    creaNodo();
     cabecera();
     contribuyentes.sort(function(a,b) {
         if (a.gestor > b.gestor) {
@@ -97,7 +120,3 @@ function ordenGestor(){
 }
 /*--------elimina listado: no se usa porque una vez que borra todo no permite volver a cargar filtros--
 -----------a fin de probar el funcionamiento de la página usé location.reload()-*/
-function eliminaLista(){
-    var getChild2 = document.getElementById("impresora");  
-    getChild2.parentNode.removeChild(getChild2);
-}
