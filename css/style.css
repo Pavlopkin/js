@@ -256,7 +256,7 @@ body {
 #liquidacion {
   margin: auto;
   background-color: white;
-  width: 94%;
+  width: 98%;
   color: black;
   height: auto;
   min-height: 420px;
@@ -267,7 +267,7 @@ body {
   animation-duration: 2s; }
 
 .form {
-  width: 45%;
+  width: 48%;
   background-color: rgba(255, 255, 255, 0.692);
   padding: 25px;
   margin: 20px;
@@ -287,3 +287,18 @@ input {
 
 .enfasis {
   font-weight: 800; }
+
+.btnDatos {
+  padding: 5px 20px;
+  background-color: #8edee0;
+  color: #060469;
+  font-weight: 800;
+  border: solid 1px grey;
+  box-shadow: 1px 0px 11px 1px black inset;
+  border-radius: 15%;
+  width: 150px; }
+
+.btnDatos:hover {
+  background-color: blue;
+  color: white;
+  transition: 1s; }

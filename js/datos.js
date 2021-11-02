@@ -20,8 +20,7 @@ const contribuyentes = [
 /*//////////////////////////////////////////////////////////////////////////////////////////////////    
 ////////////////////////////////////FUNCIONES///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////*/
-/*--------------------------Crea la cabecera de la tabla----------------------------
-----------------------------se ejecuta dentro de varias funciones------------------------------*/
+/*----------------------------------Crea y elimina el nodo en DOM------------------------------ */
 creaNodo();
 muestraPantalla();
 function creaNodo(){
@@ -35,7 +34,8 @@ function eliminaDos(){
     getChild2.parentNode.removeChild(getChild2);
     creaNodo();
 }
-
+/*--------------------------Crea la cabecera de la tabla----------------------------
+----------------------------se ejecuta dentro de varias funciones------------------------------*/
 function cabecera(){
     let padre = document.getElementById("tabla");
     let contenedor = document.createElement("tr");
@@ -118,5 +118,19 @@ function ordenGestor(){
     });
     estructuraTabla();
 }
-/*--------elimina listado: no se usa porque una vez que borra todo no permite volver a cargar filtros--
------------a fin de probar el funcionamiento de la página usé location.reload()-*/
+/*-------------------botones de filtros al listado---------------------------------------------*/
+let botonGestor = document.getElementById("btnGestor");
+botonGestor.onclick = () =>{ordenGestor()};
+
+let botonNombre = document.getElementById("btnNombre");
+botonNombre.onclick = () =>{ordenNombre()};
+
+let botonEstado = document.getElementById("btnEstado");
+botonEstado.onclick = () =>{ordenEstado()};
+
+let botonLimpia = document.getElementById("btnLimpia");
+botonLimpia.onclick = () =>{eliminaDos()};
+
+
+
+

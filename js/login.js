@@ -6,30 +6,24 @@ const usuario = [
     {user: "juan", pass:"5678", edad:"45", correo:"usuario@gmail.com"},
     {user: "florencia", pass:"4321", edad:"35", correo:"usuario2@gmail.com"},
 ];
-
-let formulario = document.getElementById("formulario");
+/*-------------------inicializa variables----------------------------------------*/
+let = ingresaNombre = 0;
+let = ingresaContraseña = 0;
+/*--------------------Valida datos del formulario--------------------------------*/
+let formulario = document.getElementById("formularioLogin");
 formulario.addEventListener("submit", validacion);
 
 function validacion(e){
     e.preventDefault();
     let formulario = e.target;
-
-  
     ingresaNombre = formulario.children[1].value;
     ingresaContraseña = formulario.children[3].value;
-
     console.log(ingresaNombre);
     console.log(ingresaContraseña);
     login();
-    
 }
-
-let = ingresaNombre = 0;
-let = ingresaContraseña = 0;
-
-
+/*-----------------------verifica que usuario y contraseña sean correctos-------------*/
 function login(){
-    
     switch (ingresaNombre){
         case usuario[0].user:
             contraseña(0);
@@ -45,17 +39,15 @@ function login(){
     }  
 }
 function contraseña(x){
-    
-        
     if(usuario[x].pass===ingresaContraseña){
         imprimeEnlace();
-        imprimeUsuario(x);
-        
+        imprimeUsuario(x);     
     }
     else{
         alert("usuario incorrecto");
     }
 }
+/*--------------------crea un mensaje con el nombre del usuario-----------------------*/
 function imprimeUsuario(x){
     let padre = document.getElementById("usuario");
     let li = document.createElement("li");

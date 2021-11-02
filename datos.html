@@ -35,7 +35,7 @@
                 </nav>
             </div>
             <div  class="menuDerecha">
-                <form id="formulario">
+                <form id="formularioLogin">
                     <label for="usuario">Usuario</label>
                     <input type="text" name="usuario" class="login__casillero">
                     <label for="contraseña">Contraseña</label>
@@ -51,11 +51,11 @@
         </header>      
         <div class="contenido">
             <h1 class="titulos titulos--datos">Control de Casos Judiciales</h1>
-            <div class="menu__datos">                
-                <a class="btn btn-secondary" href='javascript:;' onclick="ordenGestor();" role="button">Ordenar por Gestor</a> 
-                <a class="btn btn-secondary" href='javascript:;' onclick="ordenNombre();" role="button">Ordenar por Nombre</a> 
-                <a class="btn btn-secondary" href='javascript:;' onclick="ordenEstado();" role="button">Ordenar por Estado</a> 
-                <a class="btn btn-light" href='javascript:;' onclick="eliminaDos();" role="button">Limpiar listado</a> 
+            <div class="menu__datos"> 
+                <button id="btnGestor" class="btnDatos">Ordenar por Gestor</button>       
+                <button id="btnNombre" class="btnDatos">Ordenar por Nombre</button>  
+                <button id="btnEstado" class="btnDatos">Ordenar por Estado</button>    
+                <button id="btnLimpia" class="btnDatos">Limpiar listado</button>        
             </div> 
             <section class="liquidacion liquidacion--datos">
                 <div id="cambia"></div> 
@@ -73,6 +73,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
     <script src="./js/login.js"></script>
-    <script src="./js/elimina.js"></script>
 </body>
 </html>
