@@ -13,9 +13,8 @@ let sTasa = 0;
 let totalLiquidacion = 0;
 let monto = 0;
 let porcentaje = 0;
-let fechaTexto = 0;
-let fechaTexto2 = 0;
 let mensajeFecha = 0;
+let dias = 0;
 /*////////////////////////////////Valida y procesa datos del formulario//////////////////////////// */
 let formularioDos = document.getElementById("formularioDos");
 formularioDos.addEventListener("submit", formularioLiquidacion);
@@ -33,8 +32,8 @@ function formularioLiquidacion(e){
     monto = formulario.parametrosLiquidacion.children[1].value;
     porcentaje = formulario.parametrosLiquidacion.children[3].value;
     /*----------une las variables de la fecha y pasa de string a date----------------------*/
-    fechaTexto = year+"/"+month+"/"+day;
-    fechaTexto2 = year2+"/"+month2+"/"+day2;
+    let fechaTexto = year+"/"+month+"/"+day;
+    let fechaTexto2 = year2+"/"+month2+"/"+day2;
     let ms = Date.parse(fechaTexto);
 	fecha = new Date(ms);
     console.log(fecha);
@@ -101,6 +100,7 @@ function tasaJusticia(){
     }
     if(document.getElementById('radio5').checked){
         tasa = 0;
+        
     }
 }
 /*----------------sobro Tasa-----------------------------------------------------
@@ -131,7 +131,7 @@ function creaNodo(){
 }
 /*---------------------------elimina el nodo----------------------------------------------*/
 function eliminaDos(){
-    var getChild2 = document.getElementById("liquidacion");  
+    let getChild2 = document.getElementById("liquidacion");  
     getChild2.parentNode.removeChild(getChild2);
     creaNodo();
 }
@@ -153,7 +153,7 @@ function muestraResultado(){
                                     <p>IVA sobre intereses..........................................$${iva.toFixed(2)}.-</p>
                                     <p class="enfasis">Subtotal........................................$${subtotal.toFixed(2)}.-</p>
                                     <p>Tasa de justicia..................................................$${tasa.toFixed(2)}.-</p>
-                                    <p>Sobre Tasa..........................................................$${sTasa.toFixed(2)}.-</p>
+                                    <p> Sobre Tasa..........................................................$${sTasa.toFixed(2)}.-</p>
                                     <p class="enfasis">TOTAL...........................................$${totalLiquidacion.toFixed(2)}.-</p>`;
         padre.appendChild(contenedor);     
 }

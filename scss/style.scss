@@ -338,25 +338,31 @@ input{
     background-color: rgb(255, 255, 255);
     border-radius: 25%;
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: center;
     h3{
         text-decoration: none;
         color: black;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: 700;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 800;
+        text-align: center;
+        margin-top: 5px;  
     }
 }
 .secciones:hover{
-    box-shadow: 0px 0px 110px 11px rgba(97, 69, 253, 0.75) inset;
+    box-shadow: 0px 0px 110px 11px rgba(19, 114, 238, 0.75) inset;
     transform: scale(1.1,1.1);
     transition: 1s;
 }
-.secciones--liq{
+.fotoLiq{
     background-image: url(../assets/calculadora.png);
     background-size: cover;
+    width: 90%;
+    height: 80%;
 }
-.secciones--datos{
+.fotoDat{
     background-image: url(../assets/base.png);
     background-size: cover;
+    width: 90%;
+    height: 80%;
 }
