@@ -70,12 +70,10 @@ body{
     padding: 30px 10px;
     box-sizing: border-box;
     .contenido__presentacion{
-        width: 50%;
-        height: 350px;
-        background-color: rgba(255, 255, 255, 0.493);
-        box-shadow: 11px -5px 81px 0px rgba(100,0,95,0.74);
-        border-radius: 25%;
-        margin: auto;
+        width: auto;
+        height: auto;
+        padding: 30px;
+        margin: 50px auto;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -296,6 +294,8 @@ body{
     padding: 25px;
     margin: 20px;
     height: 500px;
+    animation-name: aparece;
+    animation-duration: 1s;
 }
 input{
     margin: 15px 5px;
@@ -326,4 +326,37 @@ input{
     background-color: blue;
     color: white;
     transition: 1s;
+}
+.enlacesDiv{
+    text-decoration: none;
+}
+.secciones{
+    width: 330px;
+    height: 330px;
+    margin: 25px;
+    padding: 5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    h3{
+        text-decoration: none;
+        color: black;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 700;
+    }
+}
+.secciones:hover{
+    box-shadow: 0px 0px 110px 11px rgba(97, 69, 253, 0.75) inset;
+    transform: scale(1.1,1.1);
+    transition: 1s;
+}
+.secciones--liq{
+    background-image: url(../assets/calculadora.png);
+    background-size: cover;
+}
+.secciones--datos{
+    background-image: url(../assets/base.png);
+    background-size: cover;
 }

@@ -2,9 +2,9 @@
 /////////////////////////////OBJETOS - VALIDACIÓN DE USUARIO - //////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////*/
 const usuario = [
-    {user: "pablo", pass:"1234", edad:"37", correo:"gomezpablor@gmail.com"},
-    {user: "juan", pass:"5678", edad:"45", correo:"usuario@gmail.com"},
-    {user: "florencia", pass:"4321", edad:"35", correo:"usuario2@gmail.com"},
+    {user: "pablo", pass:"1234", edad:"37", correo:"gomezpablor@gmail.com", cont:"0"},
+    {user: "juan", pass:"5678", edad:"45", correo:"usuario@gmail.com", cont:"0" },
+    {user: "florencia", pass:"4321", edad:"35", correo:"usuario2@gmail.com", cont:"0"},
 ];
 /*-------------------inicializa variables----------------------------------------*/
 let = ingresaNombre = 0;
@@ -21,6 +21,7 @@ function validacion(e){
     console.log(ingresaNombre);
     console.log(ingresaContraseña);
     login();
+    document.getElementById('formularioLogin').reset();
 }
 /*-----------------------verifica que usuario y contraseña sean correctos-------------*/
 function login(){
@@ -41,7 +42,8 @@ function login(){
 function contraseña(x){
     if(usuario[x].pass===ingresaContraseña){
         imprimeEnlace();
-        imprimeUsuario(x);     
+        imprimeUsuario(x);
+        contadorIngresos(x);
     }
     else{
         alert("usuario incorrecto");
@@ -60,12 +62,13 @@ function imprimeEnlace(){
     li.innerHTML = "<img class='foto' src='./assets/avatar.png'>"
     padre.appendChild(li);
 }
-function mensaje(x){
-    let padre = document.getElementById("cambia");
-            let a = document.createElement("a");
-            a.innerHTML = "<a class='cerrar'class='btn btn-primary' href='javascript:;' onclick='elimina()'>X</a>"
-            padre.appendChild(a);
-            let p = document.createElement("p");
-            p.innerHTML = "<p class='flotante'><span>Mi cuenta</span><br><br><br>Usuario:" + usuario[x].user + "<br><br>Mail:" + usuario[x].correo + "</p>"
-            padre.appendChild(p);
+/*-----------------cuenta la cantidad de veces que ingresaron usuarios registrados------*/
+function contadorIngresos(x){
+    let resultadoAnterior = JSON.parse(localStorage.getItem("contador"));
+    let sumaUno = resultadoAnterior + 1;
+    usuarioGuardar = usuario[x].user;
+    localStorage.setItem("contador", sumaUno);
+    localStorage.setItem("usuario", usuarioGuardar);
+    console.log("Ingreso N°: " + localStorage.contador);
+    console.log("Usuario N°: " + localStorage.usuario);
 }

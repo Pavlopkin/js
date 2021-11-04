@@ -16,7 +16,6 @@ let porcentaje = 0;
 let fechaTexto = 0;
 let fechaTexto2 = 0;
 let mensajeFecha = 0;
-
 /*////////////////////////////////Valida y procesa datos del formulario//////////////////////////// */
 let formularioDos = document.getElementById("formularioDos");
 formularioDos.addEventListener("submit", formularioLiquidacion);
@@ -46,9 +45,9 @@ function formularioLiquidacion(e){
     console.log(difference);
     dias = difference/(1000 * 3600 * 24);
     console.log(dias);
-    mensajeFecha = day+"/"+month+"/"+year+" hasta "+day2+"/"+month2+"/"+year2;
-    
+    mensajeFecha = day+"/"+month+"/"+year+" hasta "+day2+"/"+month2+"/"+year2; /*--ordena fecha para mostrar en DOM ---*/
     muestraResultado();
+    document.getElementById('formularioDos').reset();
 }
 /*//////////////////////////////////////////////////////////////////////////////////
 ////////FUNCIONES QUE CALCULAN LOS RUBROS DE LA LIQUIDACIÓN////////////////////////
@@ -67,7 +66,7 @@ function punitorios(){
         intPunitorios = intereses * 0.5;
     }
     else if(document.getElementById('radio2').checked){
-        console.log("sin punitorios");
+        intPunitorios = 0;
     }
 }
 /*----------------IVA sobre intereses---------------------------------------------
@@ -77,7 +76,7 @@ function CalculaIva(){
         iva = ((intereses+ intPunitorios) * 0.21);
     }
     else if(document.getElementById('radio9').checked){
-        console.log("sin iva");
+        iva = 0;
     }
 }
 /*----------------Subtotal-----------------------------------------------------------
@@ -101,18 +100,18 @@ function tasaJusticia(){
         sobreTasa();
     }
     if(document.getElementById('radio5').checked){
-        console.log(tasa);
+        tasa = 0;
     }
 }
 /*----------------sobro Tasa-----------------------------------------------------
 --(Tasa * 0.1)------------------------------------------------------------------*/
 function sobreTasa(){
-    if (document.getElementById('radio6').checked){
+    if ((document.getElementById('radio6').checked) && (document.getElementById('radio4').checked)){
         sTasa = tasa * 0.1;
         console.log("sobre tasa ="+ sTasa.toFixed(2));
     }
     if(document.getElementById('radio7').checked){
-        console.log(sTasa);
+        sTasa = 0;
     }
 }
 /*----------------TOTAL--------------------------------------------------------------
@@ -144,7 +143,6 @@ function muestraResultado(){
     CalculaIva();
     sTotal();
     tasaJusticia();
-    sobreTasa();
     total();
     let padre = document.getElementById("liquidacion");
     let contenedor = document.createElement("div");
@@ -159,11 +157,3 @@ function muestraResultado(){
                                     <p class="enfasis">TOTAL...........................................$${totalLiquidacion.toFixed(2)}.-</p>`;
         padre.appendChild(contenedor);     
 }
-
-
-
-    /*------------------------------ejecuta funciones-------------------------------------------*/
-    
-   
-
-    
