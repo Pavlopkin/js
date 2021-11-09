@@ -16,10 +16,7 @@ let porcentaje = 0;
 let mensajeFecha = 0;
 let dias = 0;
 /*////////////////////////////////Valida y procesa datos del formulario//////////////////////////// */
-let formularioDos = document.getElementById("formularioDos");
-formularioDos.addEventListener("submit", formularioLiquidacion);
-
-function formularioLiquidacion(e){
+$("#formularioDos").submit(function (e) {
     e.preventDefault();
     let formulario = e.target;
     /*-----------------toma datos de inputs------------------*/
@@ -47,7 +44,7 @@ function formularioLiquidacion(e){
     mensajeFecha = day+"/"+month+"/"+year+" hasta "+day2+"/"+month2+"/"+year2; /*--ordena fecha para mostrar en DOM ---*/
     muestraResultado();
     document.getElementById('formularioDos').reset();
-}
+});
 /*//////////////////////////////////////////////////////////////////////////////////
 ////////FUNCIONES QUE CALCULAN LOS RUBROS DE LA LIQUIDACIÓN////////////////////////
 /////////////////////////////////////////////////////////////////////////////////*/
@@ -70,7 +67,7 @@ function punitorios(){
 }
 /*----------------IVA sobre intereses---------------------------------------------
 --((intereses compensatorios + intereses punitorios) * 0.21)----------------------*/
-function CalculaIva(){
+function calculaIva(){
     if (document.getElementById('radio8').checked){   
         iva = ((intereses+ intPunitorios) * 0.21);
     }
@@ -96,12 +93,11 @@ function tasaJusticia(){
     }
     if(document.getElementById('radio4').checked){
         calculoTasa(0.022);
-        sobreTasa();
+        sobreTasa();      
     }
     if(document.getElementById('radio5').checked){
-        tasa = 0;
-        
-    }
+        tasa = 0;  
+    }  
 }
 /*----------------sobro Tasa-----------------------------------------------------
 --(Tasa * 0.1)------------------------------------------------------------------*/
@@ -140,20 +136,100 @@ function muestraResultado(){
     eliminaDos();
     intCompensatorios();
     punitorios();
-    CalculaIva();
+    calculaIva();
     sTotal();
     tasaJusticia();
     total();
-    let padre = document.getElementById("liquidacion");
-    let contenedor = document.createElement("div");
-        contenedor.innerHTML = `    <p>Capital..................................................................$${monto}.-</p>
-                                    <p>Interés compensatorio (TNA ${porcentaje}%) desde <br> 
+    console.log(monto);
+    $("#liquidacion").prepend(`     
+                                    <h3 id="atencion"> ATENCIÓN: se ha producido un error, vuelva a ingresar los datos y presione enviar.</h3>
+                                    <p id="capital">Capital..................................................................$${monto}.-</p>
+                                    <p id="resultadoInteres">Interés compensatorio (TNA ${porcentaje}%) desde <br> 
                                     ${mensajeFecha}.................$${intereses.toFixed(2)}.-</p>
-                                    <p>Interés punitorio..............................................$${intPunitorios.toFixed(2)}.-</p>
-                                    <p>IVA sobre intereses..........................................$${iva.toFixed(2)}.-</p>
-                                    <p class="enfasis">Subtotal........................................$${subtotal.toFixed(2)}.-</p>
-                                    <p>Tasa de justicia..................................................$${tasa.toFixed(2)}.-</p>
-                                    <p> Sobre Tasa..........................................................$${sTasa.toFixed(2)}.-</p>
-                                    <p class="enfasis">TOTAL...........................................$${totalLiquidacion.toFixed(2)}.-</p>`;
-        padre.appendChild(contenedor);     
+                                    <p id="resultadoPun">Interés punitorio..............................................$${intPunitorios.toFixed(2)}.-</p>
+                                    <p id="resultadoIVA">IVA sobre intereses..........................................$${iva.toFixed(2)}.-</p>
+                                    <p id="resultadoSub" class="enfasis">Subtotal........................................$${subtotal.toFixed(2)}.-</p>
+                                    <p id="resultadoTasa">Tasa de justicia..................................................$${tasa.toFixed(2)}.-</p>
+                                    <p id="resultadoST"> Sobre Tasa..........................................................$${sTasa.toFixed(2)}.-</p>
+                                    <p id="total" class="enfasis">TOTAL...........................................$${totalLiquidacion.toFixed(2)}.-</p>`);
+    if(sTasa != 0){
+        $("#resultadoST").show();
+    }
+    if(tasa != 0){
+        $("#resultadoTasa").show();
+    }
+    if((tasa === 0)&&(sTasa === 0)){
+        $("#resultadoSub").hide();
+    }
+    if(intPunitorios === 0){
+        $("#resultadoPun").hide();
+    }
+    if(iva === 0) {
+        $("#resultadoIVA").hide();
+    } 
+    if (monto === ""){
+        console.log("nada");
+        $("#total").hide();
+        $("#capital").hide();
+        $("#interes").hide();
+        $("#atencion").show();
+        
+    }
+    if (isNaN(intereses)){
+        $("#resultadoInteres").hide();
+    }
+    if (isNaN(subtotal)){
+        $("#resultadoSub").hide();
+    }
+    if (isNaN(totalLiquidacion)){
+        $("#total").hide();
+    }
+    sTasa = 0;
+    tasa = 0;
+    iva = 0;
+    intPunitorios = 0;
+}
+$("#radio4").click(function() {
+    $("#stasa").slideDown(300); 
+});
+$("#radio5").click(function() {
+    $("#stasa").slideUp(300);
+});
+$("#radio3").click(function() {
+    $("#stasa").slideUp(300);
+});
+$("#btnTasa").click(function (){
+    formularioTasa();
+});
+
+function formularioTasa(){
+    $("#tituloLiquidacion").hide();
+    $("#fotoLiquidacion").hide();
+    $("#porcentajeTitulo").hide();
+    $("#porcentajeCampo").hide();
+    $("#tituloTasa").slideDown(300);
+    $("#parametrosLiquidacion").slideDown(300);
+    $("#tasa").slideDown(300);
+    $("#btnEnviar").slideDown(300);
+    $("#fechaInicio").hide();
+    $("#fechaFinal").hide();
+    $("#iva").hide();
+    $("#punitorios").hide();   
+}
+$("#btnLiq").click(function (){
+    formularioLiq();
+});
+function formularioLiq(){
+    $("#tituloTasa").hide();
+    $("#fotoLiquidacion").hide();
+    $("#tituloLiquidacion").slideDown(300);
+    $("#parametrosLiquidacion").slideDown(300);
+    $("#porcentajeTitulo").show();
+    $("#porcentajeCampo").show();
+    $("#fechaInicio").show();
+    $("#fechaFinal").show();
+    $("#punitorios").show();
+    $("#iva").show();
+    $("#tasa").slideDown(300);
+    $("#btnEnviar").slideDown(300);
 }

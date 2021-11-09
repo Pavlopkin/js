@@ -83,11 +83,6 @@ body {
     animation-duration: 3s;
     animation-iteration-count: infinite; }
 
-.contenido--liquidacion {
-  display: flex;
-  padding: 0px;
-  justify-content: space-between; }
-
 .imprime {
   margin-top: 50px; }
 
@@ -264,6 +259,11 @@ body {
   animation-name: aparece;
   animation-duration: 2s; }
 
+.cajaFormulario {
+  display: flex;
+  padding: 0px;
+  justify-content: space-between; }
+
 .form {
   width: 48%;
   background-color: rgba(255, 255, 255, 0.692);
@@ -283,7 +283,7 @@ input {
   width: 60px; }
 
 .numeros {
-  width: 90px; }
+  width: 120px; }
 
 .enfasis {
   font-weight: 800; }
@@ -340,3 +340,53 @@ input {
   background-size: cover;
   width: 90%;
   height: 80%; }
+
+#stasa {
+  display: none; }
+
+#resultadoST {
+  display: none; }
+
+#resultadoTasa {
+  display: none; }
+
+#atencion {
+  display: none; }
+
+.botonera {
+  width: 48%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around; }
+  .botonera button {
+    padding: 10px; }
+
+#fotoLiquidacion {
+  opacity: 0.1; }
+
+#fechaInicio {
+  display: none; }
+
+#fechaFinal {
+  display: none; }
+
+#parametrosLiquidacion {
+  display: none; }
+
+#punitorios {
+  display: none; }
+
+#iva {
+  display: none; }
+
+#tasa {
+  display: none; }
+
+#btnEnviar {
+  display: none; }
+
+#tituloLiquidacion {
+  display: none; }
+
+#tituloTasa {
+  display: none; }
