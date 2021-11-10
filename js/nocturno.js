@@ -1,4 +1,4 @@
-/*$("#btnNocturno").click(function (){
+$("#btnNocturno").click(function (){
     nocturno();
     $("#btnDiurno").show();
    
@@ -27,45 +27,5 @@ function diurno(){
     $("#btnNocturno").css({"background-color": "blue", "color": "rgb(177, 252, 239)", "font-weight": "800", "padding": "5px 10px"})
     
 }
-*/
-
-$("#btnTexto").click(function (){
-    verMas();
-});
-$("#btnTextoDos").click(function (){
-    verMenos();
-});
-
-$("#textoDos").hide();
-
-function verMas(){
-    $("#textoDos").fadeIn(1000);
-}
-
-function verMenos(){
-    $("#textoDos").hide();
-}
-
-$("#textoUno").animate({
-    top: '500px',
-    opacity: '1',
-     },
-    2000,
-    function() {
-        console.log("funciona");
-    }
-);
 
 
-$("#animado").css({ "width": "200px", "height": "200px",
-     "background": "black", "margin": "50px auto"});
-
-$("#animado").animate({
-    width: '500px',
-    height: '500px',
-     },
-    50000,
-    function() {
-        console.log("funciona");
-    }
-);

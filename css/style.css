@@ -30,6 +30,7 @@ body {
   box-sizing: border-box; }
 
 .header {
+  background-color: #2b46e2;
   width: 100%;
   height: auto;
   display: flex;
@@ -142,6 +143,7 @@ body {
     font-weight: 600; }
 
 .footer {
+  background-color: #2b46e2;
   width: 100%;
   height: 80px;
   color: white;
@@ -268,7 +270,7 @@ body {
   width: 48%;
   background-color: rgba(255, 255, 255, 0.692);
   padding: 25px;
-  margin: 20px;
+  margin: 0px 20px;
   height: 500px;
   animation-name: aparece;
   animation-duration: 1s; }
@@ -287,6 +289,19 @@ input {
 
 .enfasis {
   font-weight: 800; }
+
+#btnNocturno {
+  margin: 0px 15px 15px 85%;
+  padding: 5px;
+  background-color: blue;
+  color: #b1fcef;
+  font-weight: 800;
+  padding: 5px 10px; }
+
+#btnDiurno {
+  margin: 0px 15px 15px 85%;
+  padding: 5px;
+  display: none; }
 
 .btnDatos {
   padding: 5px 20px;
@@ -354,12 +369,18 @@ input {
   display: none; }
 
 .botonera {
-  width: 48%;
+  width: 96%;
   padding: 10px;
   display: flex;
-  justify-content: space-around; }
+  justify-content: space-around;
+  background-color: rgba(255, 255, 255, 0.692);
+  margin: 20px; }
   .botonera button {
-    padding: 10px; }
+    padding: 5px;
+    border-radius: 25%;
+    border: solid 0.1px white;
+    color: #00a2ff;
+    background-color: white; }
 
 #fotoLiquidacion {
   opacity: 0.1; }

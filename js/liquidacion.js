@@ -33,14 +33,11 @@ $("#formularioDos").submit(function (e) {
     let fechaTexto2 = year2+"/"+month2+"/"+day2;
     let ms = Date.parse(fechaTexto);
 	fecha = new Date(ms);
-    console.log(fecha);
     ms2 = Date.parse(fechaTexto2);
 	fecha2 = new Date(ms2);
     /*--------------calcula el tiempo transcurrido entre fechas-------------------------*/
     let difference= Math.abs(fecha2 - fecha);
-    console.log(difference);
     dias = difference/(1000 * 3600 * 24);
-    console.log(dias);
     mensajeFecha = day+"/"+month+"/"+year+" hasta "+day2+"/"+month2+"/"+year2; /*--ordena fecha para mostrar en DOM ---*/
     muestraResultado();
     document.getElementById('formularioDos').reset();
@@ -52,8 +49,6 @@ $("#formularioDos").submit(function (e) {
 --(Monto x porcentaje ingresado x dias transcurridos)------------------------------*/
 function intCompensatorios(){
     intereses = monto  * (porcentaje/100) *  (dias/365);
-    console.log(intereses);
-    console.log("monto " + monto);
 }
 /*----------------Intereses punitorios---------------------------------------------
 --(Resultado de compensatorios * 0.5)----------------------------------------------*/
@@ -79,13 +74,11 @@ function calculaIva(){
 --(Monto + compensatorios + punitorios + iva)---------------------------------------*/
 function sTotal(){
     subtotal = (parseFloat(monto) + parseFloat(intereses) + parseFloat(intPunitorios) + iva);
-    console.log("subtotal = " + subtotal.toFixed(2));
 }
 /*----------------Tasa de justicia---------------------------------------------
 --(Monto * a)---------------------------------------------------------------------*/
 function calculoTasa(a){
     tasa = monto * a;
-    console.log("tasa = "+ tasa);
 }
 function tasaJusticia(){
     if (document.getElementById('radio3').checked){
@@ -104,7 +97,6 @@ function tasaJusticia(){
 function sobreTasa(){
     if ((document.getElementById('radio6').checked) && (document.getElementById('radio4').checked)){
         sTasa = tasa * 0.1;
-        console.log("sobre tasa ="+ sTasa.toFixed(2));
     }
     if(document.getElementById('radio7').checked){
         sTasa = 0;
@@ -114,7 +106,6 @@ function sobreTasa(){
 --(Subtotal + tasa + sobre tasa)----------------------------------------------------*/
 function total(){
     totalLiquidacion = subtotal + tasa + sTasa;
-    console.log(totalLiquidacion.toFixed(2));
 }
 /*//////////////////////////////Muestra el resultado mediante el DOM////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////*/
@@ -140,7 +131,6 @@ function muestraResultado(){
     sTotal();
     tasaJusticia();
     total();
-    console.log(monto);
     $("#liquidacion").prepend(`     
                                     <h3 id="atencion"> ATENCIÓN: se ha producido un error, vuelva a ingresar los datos y presione enviar.</h3>
                                     <p id="capital">Capital..................................................................$${monto}.-</p>
@@ -168,7 +158,6 @@ function muestraResultado(){
         $("#resultadoIVA").hide();
     } 
     if (monto === ""){
-        console.log("nada");
         $("#total").hide();
         $("#capital").hide();
         $("#interes").hide();
@@ -189,6 +178,7 @@ function muestraResultado(){
     iva = 0;
     intPunitorios = 0;
 }
+/*---------------controla desplegable sobre tasa en formulario #sTasa-------------*/
 $("#radio4").click(function() {
     $("#stasa").slideDown(300); 
 });
@@ -198,10 +188,10 @@ $("#radio5").click(function() {
 $("#radio3").click(function() {
     $("#stasa").slideUp(300);
 });
+/*----------------------------------activa calculadora de tasa de justicia------------*/
 $("#btnTasa").click(function (){
     formularioTasa();
 });
-
 function formularioTasa(){
     $("#tituloLiquidacion").hide();
     $("#fotoLiquidacion").hide();
@@ -216,6 +206,7 @@ function formularioTasa(){
     $("#iva").hide();
     $("#punitorios").hide();   
 }
+/*------------------------------activa calculadora de liquidación tasa anual-----------*/
 $("#btnLiq").click(function (){
     formularioLiq();
 });
