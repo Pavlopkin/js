@@ -13,7 +13,7 @@ body {
 
 .container {
   width: 99%;
-  min-width: 1150px;
+  max-width: 1150px;
   height: auto;
   padding: 0;
   box-sizing: border-box; }
