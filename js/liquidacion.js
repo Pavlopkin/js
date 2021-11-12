@@ -27,7 +27,7 @@ $("#formularioDos").submit(function (e) {
     let month2 = formulario.fechaFinal.children[3].value;
     let year2 = formulario.fechaFinal.children[5].value;
     monto = formulario.parametrosLiquidacion.children[1].value;
-    porcentaje = formulario.parametrosLiquidacion.children[3].value;
+    porcentaje = formulario.parametrosLiquidacion.children[4].value;
     /*----------une las variables de la fecha y pasa de string a date----------------------*/
     let fechaTexto = year+"/"+month+"/"+day;
     let fechaTexto2 = year2+"/"+month2+"/"+day2;
@@ -49,6 +49,7 @@ $("#formularioDos").submit(function (e) {
 --(Monto x porcentaje ingresado x dias transcurridos)------------------------------*/
 function intCompensatorios(){
     intereses = monto  * (porcentaje/100) *  (dias/365);
+    console.log(intereses);
 }
 /*----------------Intereses punitorios---------------------------------------------
 --(Resultado de compensatorios * 0.5)----------------------------------------------*/
@@ -190,6 +191,8 @@ $("#radio3").click(function() {
 });
 /*----------------------------------activa calculadora de tasa de justicia------------*/
 $("#btnTasa").click(function (){
+    $("#form").hide();
+    $("#formularioDos").show();
     formularioTasa();
 });
 function formularioTasa(){
@@ -208,6 +211,8 @@ function formularioTasa(){
 }
 /*------------------------------activa calculadora de liquidación tasa anual-----------*/
 $("#btnLiq").click(function (){
+    $("#form").hide();
+    $("#formularioDos").show();
     formularioLiq();
 });
 function formularioLiq(){
@@ -224,3 +229,11 @@ function formularioLiq(){
     $("#tasa").slideDown(300);
     $("#btnEnviar").slideDown(300);
 }
+
+
+$("#btnEnviar").click(function (){
+    
+    $("#form").show();
+    $("#formularioDos").hide();
+   
+});

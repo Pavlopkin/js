@@ -6,21 +6,6 @@
         opacity: 1;
     }
 }
-@keyframes colores{
-    0%{
-        color: rgb(55, 0, 255);
-        text-shadow: rgba(19, 0, 194, 0.397) 2px 2px 2px;
-    }
-    50%{
-        color: rgb(50, 112, 205);
-        text-shadow: rgb(0, 0, 0) 2px 2px 2px;
-    }
-    100%{
-        color: rgb(45, 54, 185);
-        text-shadow: rgba(255, 255, 255, 0.582) 2px 2px 2px;
-    }
-}
-
 *{
     margin: 0;
     padding: 0;
@@ -30,17 +15,19 @@ body{
 }
 .container{
     width: 99%;
-    max-width: 1150px;
+    min-width: 1150px;
     height: auto;
     padding: 0;
     box-sizing: border-box;
 }
 .header{
-    background-color: rgb(43, 70, 226);
+    background: rgb(205,0,0);
+    background: linear-gradient(295deg, rgba(205,0,0,1) 0%, rgba(191,57,57,1) 49%, rgba(134,10,34,1) 100%);  
     width: 100%;
     height: auto;
     display: flex;
     flex-wrap: wrap;
+   
 }
 .titulos{
     color: black;
@@ -66,10 +53,10 @@ body{
 .contenido{
     width: 100%;
     height: auto;
-    min-height: 600px;
-    
-    background: linear-gradient(352deg, rgb(241, 241, 241) 0%, rgba(158,187,207,1) 39%, rgb(161, 235, 235) 100%);  
-    padding: 30px 10px;
+    min-height: 700px;
+    background: rgb(205,0,0);
+    background: linear-gradient(295deg, rgba(205,0,0,1) 0%, rgba(191,57,57,1) 49%, rgba(134,10,34,1) 100%);  
+    padding: 0px 10px;
     box-sizing: border-box;
     .contenido__presentacion{
         width: auto;
@@ -104,7 +91,7 @@ body{
     height: auto;
     margin: auto;
     padding: 25px;
-    background-color: rgba(240, 255, 240, 0.452);
+    
     text-align: center;
     box-sizing: border-box;
     .liquidacion__titulo{
@@ -163,7 +150,8 @@ body{
     }
 }
 .footer{
-    background-color: rgb(43, 70, 226);
+    background: rgb(205,0,0);
+    background: linear-gradient(295deg, rgba(205,0,0,1) 0%, rgba(191,57,57,1) 49%, rgba(134,10,34,1) 100%);  
     width: 100%;
     height: 80px;
     color: white;
@@ -276,6 +264,7 @@ body{
 #liquidacion{
     margin: auto;
     background-color: rgb(255, 255, 255);
+    border-radius: 25%;
     width: 98%;
     color: black;
     height: auto;
@@ -292,13 +281,37 @@ body{
     justify-content: space-between;
 }
 .form{
-    width: 48%;
-    background-color: rgba(255, 255, 255, 0.692);
+    width: 60%;
     padding: 25px;
-    margin: 0px 20px;
-    height: 500px;
+    margin: 50px auto;
+    height: auto;
     animation-name: aparece;
     animation-duration: 1s;
+    box-sizing: border-box;
+    text-align: center;
+    border: dashed 2px white;
+    border-radius: 25%;
+    h3{
+        color: black;
+        font-weight: 800;
+        margin-bottom: 25px;
+    }
+    
+    fieldset{
+        width: 80%;
+        background-color: rgba(255, 255, 255, 0.219);
+        padding: 5px;
+        margin: 15px auto;
+        border-radius: 15%;
+        text-align: center;
+        input{
+            font-weight: 800;
+        }
+        label{
+            font-weight: 700;
+            font-size: 1.3em;
+        }
+    }
 }
 input{
     margin: 15px 5px;
@@ -398,19 +411,21 @@ input{
     width: 96%;
     padding: 10px;
     display: flex;
-    justify-content: space-around;
-    background-color: rgba(255, 255, 255, 0.692);
-    margin: 20px;
+    margin: auto;
+    justify-content: center;
     button{
-        padding: 5px;
+        padding: 10px;
         border-radius: 25%;
         border: solid 0.1px white;
-        color: rgb(0, 162, 255);
+        color: rgb(163, 21, 11);
         background-color: white;
+        margin: 10px;
+        font-weight: 700;
     }
 }
 #fotoLiquidacion{
     opacity: 0.1;
+    
 }
 #fechaInicio{
     display: none;
@@ -432,10 +447,28 @@ input{
 }
 #btnEnviar{
     display: none;
+    padding: 10px;
+    border-radius: 25%;
+    border: solid 0.1px white;
+    color: rgb(163, 21, 11);
+    background-color: white;
+    margin: 10px;
+    font-weight: 700;
 }
 #tituloLiquidacion{
     display: none;
+    color: white;
+    font-weight: 800;
 }
 #tituloTasa{
     display: none;
+    color: white;
+    font-weight: 800;
+}
+.caja__presentacionDos{
+    display: none;
+}
+#form{
+    display: none;
+    
 }
