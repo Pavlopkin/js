@@ -285,6 +285,7 @@ body{
     padding: 25px;
     margin: 50px auto;
     height: auto;
+    min-height: 400px;
     animation-name: aparece;
     animation-duration: 1s;
     box-sizing: border-box;
@@ -455,6 +456,16 @@ input{
     margin: 10px;
     font-weight: 700;
 }
+#btnLimpiar{
+    display: none;
+    padding: 10px;
+    border-radius: 25%;
+    border: solid 0.1px white;
+    color: rgb(163, 21, 11);
+    background-color: white;
+    margin: 10px;
+    font-weight: 700;
+}
 #tituloLiquidacion{
     display: none;
     color: white;
@@ -471,4 +482,16 @@ input{
 #form{
     display: none;
     
+}
+#itemUno{
+    display: none;
+}
+#itemDos{
+    display: none;
+}
+#itemTres{
+    display: none;
+}
+#itemCuatro{
+    display: none;
 }

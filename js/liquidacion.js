@@ -142,7 +142,8 @@ function muestraResultado(){
                                     <p id="resultadoSub" class="enfasis">Subtotal........................................$${subtotal.toFixed(2)}.-</p>
                                     <p id="resultadoTasa">Tasa de justicia..................................................$${tasa.toFixed(2)}.-</p>
                                     <p id="resultadoST"> Sobre Tasa..........................................................$${sTasa.toFixed(2)}.-</p>
-                                    <p id="total" class="enfasis">TOTAL...........................................$${totalLiquidacion.toFixed(2)}.-</p>`);
+                                    <p id="total" class="enfasis">TOTAL...........................................$${totalLiquidacion.toFixed(2)}.-</p>
+                                    `);
     if(sTasa != 0){
         $("#resultadoST").show();
     }
@@ -178,6 +179,7 @@ function muestraResultado(){
     tasa = 0;
     iva = 0;
     intPunitorios = 0;
+    
 }
 /*---------------controla desplegable sobre tasa en formulario #sTasa-------------*/
 $("#radio4").click(function() {
@@ -207,7 +209,11 @@ function formularioTasa(){
     $("#fechaInicio").hide();
     $("#fechaFinal").hide();
     $("#iva").hide();
-    $("#punitorios").hide();   
+    $("#punitorios").hide();  
+    $("#btnLimpiar").slideDown(300);
+    $(".form ol").hide();
+    $(".form h4").hide();
+    $(".form img").hide();
 }
 /*------------------------------activa calculadora de liquidación tasa anual-----------*/
 $("#btnLiq").click(function (){
@@ -228,12 +234,66 @@ function formularioLiq(){
     $("#iva").show();
     $("#tasa").slideDown(300);
     $("#btnEnviar").slideDown(300);
+    $("#btnLimpiar").slideDown(300);
+    $(".form ol").hide();
+    $(".form h4").hide();
+    $(".form img").hide();
 }
 
 
 $("#btnEnviar").click(function (){
-    
     $("#form").show();
     $("#formularioDos").hide();
+    $(".form ol").hide();
+    $(".form h4").hide();
+    $(".form img").hide();
    
 });
+
+function limpiarFormulario() {
+    document.getElementById("#formularioDos").reset();
+}
+
+$("#btnLimpiar").click(function (){    
+    limpiarFormulario();  
+});
+
+
+$(".form").prepend(`<h4> ¿Cómo hacer una liquidación?</h4>
+<ol style="list-style: none; margin-left: -50px"><li id="itemUno">Haga clic sobre la opción deseada</li>
+<li id="itemDos">Complete los campos del formulario</li>
+<li id="itemTres">Utilice "." (punto) para los decimales"</li>
+<li id="itemCuatro">Presione "Enviar"</li></ol>`);
+
+
+
+$(".form h4").css("color", "white")
+    .slideDown("slow")
+    .delay(16000)
+    .fadeOut("slow");
+
+
+function animaUno(a,b){
+    $(a).css("color", "white")
+    .hide()
+    .delay(b)
+    .slideDown("slow")
+    .delay(2500)
+    .fadeOut("slow");
+}    
+animaUno("#itemUno", 1500);
+animaUno("#itemDos", 5000);
+animaUno("#itemTres", 8500);
+animaUno("#itemCuatro", 12000);
+
+
+$(".form h4").css({"font-size": "3em", "font-weight": "800"});
+$(".form li").css({"font-size": "1.5em", "margin-top": "50px", "font-weight": "800"});
+
+$(".form").prepend(`<img src="./assets/calculadora.png" style="display: none">`);
+
+$(".form img").css("opacity", "0.1")
+    .delay(17000)
+    .fadeIn("slow");
+
+
