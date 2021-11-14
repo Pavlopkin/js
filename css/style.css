@@ -463,3 +463,15 @@ input {
 
 #itemCuatro {
   display: none; }
+
+#ajax {
+  display: flex;
+  flex-wrap: wrap; }
+  #ajax #per {
+    background-color: #b66f05;
+    width: 30%;
+    height: auto;
+    padding: 20px;
+    border: solid 2px black;
+    text-align: center;
+    margin: 10px; }
