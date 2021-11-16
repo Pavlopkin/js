@@ -3,18 +3,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////*/
 /*------------------crea nodo para imprimir resultado liquidaicón-------------------------*/
 creaNodo();
-/*--------------inicializa variables-----------------*/
-let intereses = 0;
-let intPunitorios = 0;
-let iva = 0;
-let subtotal = 0;
-let tasa = 0;
-let sTasa = 0;
-let totalLiquidacion = 0;
-let monto = 0;
-let porcentaje = 0;
-let mensajeFecha = 0;
-let dias = 0;
 /*////////////////////////////////Valida y procesa datos del formulario//////////////////////////// */
 $("#formularioDos").submit(function (e) {
     e.preventDefault();
@@ -26,89 +14,99 @@ $("#formularioDos").submit(function (e) {
     let day2 = formulario.fechaFinal.children[1].value;
     let month2 = formulario.fechaFinal.children[3].value;
     let year2 = formulario.fechaFinal.children[5].value;
-    monto = formulario.parametrosLiquidacion.children[1].value;
-    porcentaje = formulario.parametrosLiquidacion.children[4].value;
+    let monto = formulario.parametrosLiquidacion.children[1].value;
+    let porcentaje = formulario.parametrosLiquidacion.children[4].value;
     /*----------une las variables de la fecha y pasa de string a date----------------------*/
     let fechaTexto = year+"/"+month+"/"+day;
     let fechaTexto2 = year2+"/"+month2+"/"+day2;
     let ms = Date.parse(fechaTexto);
-	fecha = new Date(ms);
-    ms2 = Date.parse(fechaTexto2);
-	fecha2 = new Date(ms2);
+	let fecha = new Date(ms);
+    let ms2 = Date.parse(fechaTexto2);
+	let fecha2 = new Date(ms2);
     /*--------------calcula el tiempo transcurrido entre fechas-------------------------*/
     let difference= Math.abs(fecha2 - fecha);
-    dias = difference/(1000 * 3600 * 24);
-    mensajeFecha = day+"/"+month+"/"+year+" hasta "+day2+"/"+month2+"/"+year2; /*--ordena fecha para mostrar en DOM ---*/
-    muestraResultado();
+    let dias = difference/(1000 * 3600 * 24);
+    if (fecha2 < fecha){
+        monto = 0;
+        intereses = 0;
+    }
+    let mensajeFecha = day+"/"+month+"/"+year+" hasta "+day2+"/"+month2+"/"+year2; /*--ordena fecha para mostrar en DOM ---*/
+    calculaLiquidacion(monto, porcentaje, dias, mensajeFecha);
     document.getElementById('formularioDos').reset();
 });
+/*--------marca los errores en la carga del formulario--------------------------*/
+$("#dia1").change(function(){
+    if($("#dia1").val() > 31){
+        $("#dia1").css({"border": "red solid 3px"});
+    }
+});
+$("#dia2").change(function(){
+    if($("#dia2").val() > 31){
+        $("#dia2").css({"border": "red solid 3px"});
+    }
+});
+$("#mes1").change(function(){
+    if($("#mes1").val() > 12){
+        $("#mes1").css({"border": "red solid 3px"});
+    }
+});
+$("#mes2").change(function(){
+    if($("#mes2").val() > 12){
+        $("#mes2").css({"border": "red solid 3px"});
+    }
+});
+$("#anio2").change(function(){
+    if($("#anio1").val() > $("#anio2").val()){
+        $("#anio2").css({"border": "red solid 3px"});
+    }
+});
 /*//////////////////////////////////////////////////////////////////////////////////
-////////FUNCIONES QUE CALCULAN LOS RUBROS DE LA LIQUIDACIÓN////////////////////////
+////////FUNCION QUE CALCULA LA LIQUIDACIÓN////////////////////////
 /////////////////////////////////////////////////////////////////////////////////*/
-/*----------------Intereses compensatorios----------------------------------------
---(Monto x porcentaje ingresado x dias transcurridos)------------------------------*/
-function intCompensatorios(){
-    intereses = monto  * (porcentaje/100) *  (dias/365);
-    console.log(intereses);
-}
-/*----------------Intereses punitorios---------------------------------------------
---(Resultado de compensatorios * 0.5)----------------------------------------------*/
-function punitorios(){
+function calculaLiquidacion(a, b, c, d){ /*monto, porcentaje dias y fecha ordenada ingresan como parámetros*/
+    let intPunitorios = 0;
+    let tasa = 0;
+    let sTasa = 0;
+    let iva= 0;
+    /* intereses */
+    let intereses = a  * (b/100) *  (c/365);
+    /*punitorios*/
     if (document.getElementById('radio1').checked){
         intPunitorios = intereses * 0.5;
     }
     else if(document.getElementById('radio2').checked){
         intPunitorios = 0;
     }
-}
-/*----------------IVA sobre intereses---------------------------------------------
---((intereses compensatorios + intereses punitorios) * 0.21)----------------------*/
-function calculaIva(){
+    /*iva*/
     if (document.getElementById('radio8').checked){   
         iva = ((intereses+ intPunitorios) * 0.21);
     }
     else if(document.getElementById('radio9').checked){
         iva = 0;
     }
-}
-/*----------------Subtotal-----------------------------------------------------------
---(Monto + compensatorios + punitorios + iva)---------------------------------------*/
-function sTotal(){
-    subtotal = (parseFloat(monto) + parseFloat(intereses) + parseFloat(intPunitorios) + iva);
-}
-/*----------------Tasa de justicia---------------------------------------------
---(Monto * a)---------------------------------------------------------------------*/
-function calculoTasa(a){
-    tasa = monto * a;
-}
-function tasaJusticia(){
+    /*subtotal*/
+    subtotal = (parseFloat(a) + parseFloat(intereses) + parseFloat(intPunitorios) + iva);
+    /*tasa*/
     if (document.getElementById('radio3').checked){
-        calculoTasa(0.03);
+        tasa = a * 0.03;
     }
     if(document.getElementById('radio4').checked){
-        calculoTasa(0.022);
-        sobreTasa();      
+        tasa = a * 0.022;
     }
     if(document.getElementById('radio5').checked){
         tasa = 0;  
     }  
-}
-/*----------------sobro Tasa-----------------------------------------------------
---(Tasa * 0.1)------------------------------------------------------------------*/
-function sobreTasa(){
+    /*stasa*/
     if ((document.getElementById('radio6').checked) && (document.getElementById('radio4').checked)){
         sTasa = tasa * 0.1;
     }
     if(document.getElementById('radio7').checked){
         sTasa = 0;
     }
+    let totalLiquidacion = subtotal + tasa + sTasa;
+    muestraResultado(a, b, d, intereses, intPunitorios, iva, subtotal, tasa, sTasa, totalLiquidacion);
 }
-/*----------------TOTAL--------------------------------------------------------------
---(Subtotal + tasa + sobre tasa)----------------------------------------------------*/
-function total(){
-    totalLiquidacion = subtotal + tasa + sTasa;
-}
-/*//////////////////////////////Muestra el resultado mediante el DOM////////////////////////
+/*//////////////////////////////Muestra el resultado en el DOM////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////*/
 /*----------------------------crea el nodo------------------------------------------------*/
 function creaNodo(){
@@ -124,62 +122,69 @@ function eliminaDos(){
     creaNodo();
 }
 /*--------------------------imprime el resultado en pantalla------------------------------*/
-function muestraResultado(){
+function muestraResultado(a, b, d, i, ip, iv, s, t, sT, tl){
+    /* a = monto
+       b = porcentaje
+       d = fechas liquidacion
+       i = intereses
+       ip = interes punitorio
+       iv = iva
+       s = subtotal
+       t = tasa de justicia
+       sT = sobre Tasa
+       tl = total liquidación
+    */
     eliminaDos();
-    intCompensatorios();
-    punitorios();
-    calculaIva();
-    sTotal();
-    tasaJusticia();
-    total();
     $("#liquidacion").prepend(`     
                                     <h3 id="atencion"> ATENCIÓN: se ha producido un error, vuelva a ingresar los datos y presione enviar.</h3>
-                                    <p id="capital">Capital..................................................................$${monto}.-</p>
-                                    <p id="resultadoInteres">Interés compensatorio (TNA ${porcentaje}%) desde <br> 
-                                    ${mensajeFecha}.................$${intereses.toFixed(2)}.-</p>
-                                    <p id="resultadoPun">Interés punitorio..............................................$${intPunitorios.toFixed(2)}.-</p>
-                                    <p id="resultadoIVA">IVA sobre intereses..........................................$${iva.toFixed(2)}.-</p>
-                                    <p id="resultadoSub" class="enfasis">Subtotal........................................$${subtotal.toFixed(2)}.-</p>
-                                    <p id="resultadoTasa">Tasa de justicia..................................................$${tasa.toFixed(2)}.-</p>
-                                    <p id="resultadoST"> Sobre Tasa..........................................................$${sTasa.toFixed(2)}.-</p>
-                                    <p id="total" class="enfasis">TOTAL...........................................$${totalLiquidacion.toFixed(2)}.-</p>
+                                    <p id="capital">Capital..................................................................$${a}.-</p>
+                                    <p id="resultadoInteres">Interés compensatorio (TNA ${b}%) desde <br> 
+                                    ${d}.................$${i.toFixed(2)}.-</p>
+                                    <p id="resultadoPun">Interés punitorio..............................................$${ip.toFixed(2)}.-</p>
+                                    <p id="resultadoIVA">IVA sobre intereses..........................................$${iv.toFixed(2)}.-</p>
+                                    <p id="resultadoSub" class="enfasis">Subtotal........................................$${s.toFixed(2)}.-</p>
+                                    <p id="resultadoTasa">Tasa de justicia..................................................$${t.toFixed(2)}.-</p>
+                                    <p id="resultadoST"> Sobre Tasa..........................................................$${sT.toFixed(2)}.-</p>
+                                    <p id="total" class="enfasis">TOTAL...........................................$${tl.toFixed(2)}.-</p>
                                     `);
-    if(sTasa != 0){
+    if(sT != 0){
         $("#resultadoST").show();
     }
-    if(tasa != 0){
+    if(t != 0){
         $("#resultadoTasa").show();
     }
-    if((tasa === 0)&&(sTasa === 0)){
+    if((t === 0)&&(sT === 0)){
         $("#resultadoSub").hide();
     }
-    if(intPunitorios === 0){
+    if(ip === 0){
         $("#resultadoPun").hide();
     }
-    if(iva === 0) {
+    if(iv === 0) {
         $("#resultadoIVA").hide();
     } 
-    if (monto === ""){
+    if (a === ""){
         $("#total").hide();
         $("#capital").hide();
-        $("#interes").hide();
+        $("#resultadoInteres").hide();
         $("#atencion").show();
         
     }
-    if (isNaN(intereses)){
+    if (a === 0){
+        $("#total").hide();
+        $("#capital").hide();
+        $("#resultadoInteres").hide();
+        $("#atencion").show();
+        
+    }
+    if (isNaN(i)){
         $("#resultadoInteres").hide();
     }
-    if (isNaN(subtotal)){
+    if (isNaN(s)){
         $("#resultadoSub").hide();
     }
-    if (isNaN(totalLiquidacion)){
+    if (isNaN(tl)){
         $("#total").hide();
     }
-    sTasa = 0;
-    tasa = 0;
-    iva = 0;
-    intPunitorios = 0;
-    
 }
 /*---------------controla desplegable sobre tasa en formulario #sTasa-------------*/
 $("#radio4").click(function() {
@@ -213,7 +218,6 @@ function formularioTasa(){
     $("#btnLimpiar").slideDown(300);
     $(".form ol").hide();
     $(".form h4").hide();
-    $(".form img").hide();
 }
 /*------------------------------activa calculadora de liquidación tasa anual-----------*/
 $("#btnLiq").click(function (){
@@ -237,42 +241,34 @@ function formularioLiq(){
     $("#btnLimpiar").slideDown(300);
     $(".form ol").hide();
     $(".form h4").hide();
-    $(".form img").hide();
 }
-
-
+/*-------------aplica cambios en el DOM para mostar el resultado-----------------*/
 $("#btnEnviar").click(function (){
     $("#form").show();
     $("#formularioDos").hide();
     $(".form ol").hide();
     $(".form h4").hide();
-    $(".form img").hide();
-   
 });
-
+/*----------------------limpia los campos del formulario-------------------------*/
 function limpiarFormulario() {
     document.getElementById("#formularioDos").reset();
 }
-
+/*---------------------boton para limpiar campos del formulario--------------*/
 $("#btnLimpiar").click(function (){    
     limpiarFormulario();  
 });
-
-
+/*-----------------Explica el procedimiento para calcular liquidación--------*/
 $(".form").prepend(`<h4> ¿Cómo hacer una liquidación?</h4>
 <ol style="list-style: none; margin-left: -50px"><li id="itemUno">Haga clic sobre la opción deseada</li>
 <li id="itemDos">Complete los campos del formulario</li>
 <li id="itemTres">Utilice "." (punto) para los decimales"</li>
 <li id="itemCuatro">Presione "Enviar"</li></ol>`);
-
-
-
+/*----------------animación del título----------------------------------*/
 $(".form h4").css("color", "white")
     .slideDown("slow")
     .delay(16000)
     .fadeOut("slow");
-
-
+/*---------------crea funcion de animación-------------------------*/
 function animaUno(a,b){
     $(a).css("color", "white")
     .hide()
@@ -281,19 +277,21 @@ function animaUno(a,b){
     .delay(2500)
     .fadeOut("slow");
 }    
+/*--------------aplica la animación a los items del instructivo-----------*/
 animaUno("#itemUno", 1500);
 animaUno("#itemDos", 5000);
 animaUno("#itemTres", 8500);
 animaUno("#itemCuatro", 12000);
-
-
+/*--------------aplica estilos al instructivo----------------------------*/
 $(".form h4").css({"font-size": "3em", "font-weight": "800"});
 $(".form li").css({"font-size": "1.5em", "margin-top": "50px", "font-weight": "800"});
 
-$(".form").prepend(`<img src="./assets/calculadora.png" style="display: none">`);
 
-$(".form img").css("opacity", "0.1")
-    .delay(17000)
-    .fadeIn("slow");
+
+    
+
+
+
+
 
 

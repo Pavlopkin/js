@@ -16,7 +16,7 @@
             <div class="menu">
                 <nav class="navbar navbar-expand-lg navbar-dark">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="index.html">Dr. Zaius</a>
+                        <a class="navbar-brand" href="index.html">Liquidaciones Online</a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -33,13 +33,8 @@
                         </div>
                     </div>
                 </nav>
-                
             </div>
-           
             <div  class="menuDerecha">
-                
-            </div>
-                 <!--
                 <form id="formularioLogin">
                     <label for="usuario">Usuario</label>
                     <input type="text" name="usuario" class="login__casillero">
@@ -48,17 +43,12 @@
                     <input type="submit" value="enviar">
                 </form>
             </div>
+        </header>
+        <div class="contenido">
             <div class="submenu">
                 <ul id="usuario">
                 </ul>
             </div>
-            <button id="btnNocturno">Dark Mode</button>
-            <button id="btnDiurno">Ligth Mode</button>
-
-            -->
-        </header>
-
-        <div class="contenido">
             <div class="botonera">
                 <button id="btnLiq">Liquidacion Tasa anual</button>
                 <button id="btnTasa">Calcular Tasa de Justicia</button>
@@ -70,23 +60,23 @@
                     <h3 id="tituloLiquidacion">Liquidación Tasa de interes anual</h3>
                     <fieldset id="fechaInicio">
                         <label for="dia">Fecha de inicio</label>
-                        <input type="text" placeholder="DD" maxlength="2" name="dia" class="fecha">
+                        <input id="dia1" type="text" min="1" max="31" placeholder="DD" maxlength="2" name="dia" class="fecha">
                         <label for="mes">/</label>
-                        <input type="text" placeholder="MM" maxlength="2" name="mes" class="fecha">
+                        <input id="mes1" type="text" placeholder="MM" maxlength="2" name="mes" class="fecha">
                         <label for="anio">/</label>
-                        <input type="text" placeholder="AAAA" maxlength="4" name="anio" class="fechaDos">
+                        <input id="anio1" type="text" placeholder="AAAA" maxlength="4" name="anio" class="fechaDos">
                     </fieldset>
                     <fieldset id="fechaFinal">
                         <label for="dia2">Fecha final</label>
-                        <input type="text" placeholder="DD" maxlength="2" name="dia2" class="fecha">
+                        <input id="dia2" type="text" min="1" max="31" placeholder="DD" maxlength="2" name="dia2" class="fecha">
                         <label for="mes2">/</label>
-                        <input type="text" placeholder="MM" maxlength="2" name="mes2" class="fecha">
+                        <input id="mes2" type="text" placeholder="MM" maxlength="2" name="mes2" class="fecha">
                         <label for="anio2">/</label>
-                        <input type="text" placeholder="AAAA" maxlength="4" name="anio2" class="fechaDos">
+                        <input id="anio2" type="text" placeholder="AAAA" maxlength="4" name="anio2" class="fechaDos">
                     </fieldset>
                     <fieldset id="parametrosLiquidacion">
                         <label for="monto">Monto</label>
-                        <input type="number" step="0.01" name="monto" class="numeros"><br>
+                        <input type="number" min="0" max="999999999999999999" step="0.01" name="monto" class="numeros"><br>
                         <label id="porcentajeTitulo" for="porcentaje">Porcentaje aplicado</label>
                         <input id="porcentajeCampo" type="number" step="0.01" name="porcentaje" class="numeros">
                     </fieldset>
@@ -126,9 +116,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
-    <script src="./js/liquidacion.js"></script>  
-   
+    <script src="./js/liquidacion.js"></script>
+    <script src="./js/login.js"></script>       
 </body>
 </html>
 
