@@ -33,7 +33,9 @@ body {
   text-align: center; }
 
 .titulos--datos {
-  margin-bottom: 25px; }
+  margin-bottom: 25px;
+  color: white;
+  text-shadow: 2px 2px #65dafd; }
 
 .menu {
   width: 30%; }
@@ -47,10 +49,11 @@ body {
     color: white; }
 
 .contenido {
+  overflow: hidden;
   width: 100%;
   height: auto;
   min-height: 700px;
-  background: #000bdd;
+  background: rgba(139, 99, 190, 0.452);
   background: linear-gradient(295deg, #000bdd 0%, #389daf 49%, #1061ff 100%);
   padding: 30px 10px;
   box-sizing: border-box; }
@@ -74,6 +77,12 @@ body {
     animation-name: colores;
     animation-duration: 3s;
     animation-iteration-count: infinite; }
+
+.contenido--datos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
 
 .imprime {
   margin-top: 50px; }
@@ -212,11 +221,15 @@ body {
   transition: 1s; }
 
 .liquidacion__tabla {
-  margin: auto; }
+  margin: auto;
+  width: auto;
+  height: auto;
+  background-color: white; }
 
 #tabla th {
   border: 2px black solid;
-  padding: 2px 15px; }
+  padding: 2px 25px;
+  height: auto; }
 
 .tituloTabla {
   background-color: black;
@@ -302,29 +315,6 @@ input {
 .enfasis {
   font-weight: 800; }
 
-#btnNocturno {
-  margin: 0px 15px 15px 85%;
-  padding: 5px;
-  background-color: blue;
-  color: #b1fcef;
-  font-weight: 800;
-  padding: 5px 10px; }
-
-#btnDiurno {
-  margin: 0px 15px 15px 85%;
-  padding: 5px;
-  display: none; }
-
-.btnDatos {
-  padding: 5px 20px;
-  background-color: #8edee0;
-  color: #060469;
-  font-weight: 800;
-  border: solid 1px grey;
-  box-shadow: 1px 0px 11px 1px black inset;
-  border-radius: 15%;
-  width: 150px; }
-
 .btnDatos:hover {
   background-color: blue;
   color: white;
@@ -394,6 +384,9 @@ input {
     background-color: white;
     margin: 10px;
     font-weight: 700; }
+  .botonera button:hover {
+    background-color: #47d3f7;
+    transition: 2s; }
 
 #fotoLiquidacion {
   opacity: 0.1; }
@@ -426,6 +419,10 @@ input {
   margin: 10px;
   font-weight: 700; }
 
+#btnEnviar:hover {
+  background-color: #47d3f7;
+  transition: 2s; }
+
 #btnLimpiar {
   display: none;
   padding: 10px;
@@ -435,6 +432,10 @@ input {
   background-color: white;
   margin: 10px;
   font-weight: 700; }
+
+#btnLimpiar:hover {
+  background-color: #47d3f7;
+  transition: 2s; }
 
 #tituloLiquidacion {
   display: none;
@@ -475,3 +476,78 @@ input {
     border: solid 2px black;
     text-align: center;
     margin: 10px; }
+
+#formCasos {
+  text-align: center;
+  background-color: rgba(34, 177, 221, 0.849);
+  width: 40%;
+  margin: auto;
+  border-radius: 25%;
+  display: none;
+  position: fixed; }
+  #formCasos textarea {
+    padding: 10px; }
+  #formCasos p {
+    background-color: #2f5ec5;
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    color: white;
+    font-weight: 800;
+    margin: 5px auto;
+    border-radius: 50%;
+    cursor: pointer; }
+  #formCasos #modificador {
+    width: 85%;
+    height: auto;
+    padding: 5px;
+    text-align: center;
+    margin: auto; }
+    #formCasos #modificador label {
+      font-weight: 900; }
+  #formCasos #selectorCasos {
+    margin: 10px auto; }
+  #formCasos #selectorEstados {
+    margin: 10px auto; }
+
+#btnEnviardatos {
+  padding: 10px;
+  border-radius: 25%;
+  border: solid 0.1px white;
+  color: #0112a8;
+  background-color: white;
+  margin: 10px;
+  font-weight: 700; }
+
+#formAgrega {
+  display: none;
+  text-align: center;
+  background-color: rgba(34, 177, 221, 0.849);
+  width: 40%;
+  margin: auto;
+  border-radius: 25%;
+  position: fixed; }
+  #formAgrega textarea {
+    padding: 10px; }
+  #formAgrega p {
+    background-color: #2f5ec5;
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    color: white;
+    font-weight: 800;
+    margin: 5px auto;
+    border-radius: 50%;
+    cursor: pointer; }
+  #formAgrega #agregador {
+    width: 85%;
+    height: auto;
+    padding: 5px;
+    text-align: center;
+    margin: auto; }
+    #formAgrega #agregador label {
+      font-weight: 900; }
+  #formAgrega #selectorGestor {
+    margin: 10px auto; }
+  #formAgrega #agregaEstado {
+    margin: 10px auto; }

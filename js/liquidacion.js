@@ -136,7 +136,7 @@ function muestraResultado(a, b, d, i, ip, iv, s, t, sT, tl){
     */
     eliminaDos();
     $("#liquidacion").prepend(`     
-                                    <h3 id="atencion"> ATENCIÓN: se ha producido un error, vuelva a ingresar los datos y presione enviar.</h3>
+                                    <h3 id="atencion"> ATENCIÓN: <br><br> Se ha producido un error, vuelva a ingresar los datos y presione enviar.</h3>
                                     <p id="capital">Capital..................................................................$${a}.-</p>
                                     <p id="resultadoInteres">Interés compensatorio (TNA ${b}%) desde <br> 
                                     ${d}.................$${i.toFixed(2)}.-</p>
@@ -262,7 +262,8 @@ $(".form").prepend(`<h4> ¿Cómo hacer una liquidación?</h4>
 <ol style="list-style: none; margin-left: -50px"><li id="itemUno">Haga clic sobre la opción deseada</li>
 <li id="itemDos">Complete los campos del formulario</li>
 <li id="itemTres">Utilice "." (punto) para los decimales"</li>
-<li id="itemCuatro">Presione "Enviar"</li></ol>`);
+<li id="itemCuatro">Presione "Enviar"</li>
+<li id="itemCinco">Haga clic sobre la opción deseada para comenzar</li></ol>`);
 /*----------------animación del título----------------------------------*/
 $(".form h4").css("color", "white")
     .slideDown("slow")
@@ -277,21 +278,22 @@ function animaUno(a,b){
     .delay(2500)
     .fadeOut("slow");
 }    
+$("#itemCinco").css("color", "white")
+    .hide()
+    .delay(17000)
+    .fadeIn("slow");
+
+
 /*--------------aplica la animación a los items del instructivo-----------*/
 animaUno("#itemUno", 1500);
 animaUno("#itemDos", 5000);
 animaUno("#itemTres", 8500);
 animaUno("#itemCuatro", 12000);
+
 /*--------------aplica estilos al instructivo----------------------------*/
 $(".form h4").css({"font-size": "3em", "font-weight": "800"});
 $(".form li").css({"font-size": "1.5em", "margin-top": "50px", "font-weight": "800"});
-
-
-
-    
-
-
-
+$("#itemCinco").css({"font-size": "2em", "margin": "20% auto", "width": "70%"});
 
 
 

@@ -22,7 +22,7 @@ body{
 }
 .header{
     background: rgb(0,11,221);
-background: linear-gradient(295deg, rgba(0,11,221,1) 0%, rgba(56,157,175,1) 49%, rgba(16,97,255,1) 100%);
+    background: linear-gradient(295deg, rgba(0,11,221,1) 0%, rgba(56,157,175,1) 49%, rgba(16,97,255,1) 100%);
     width: 100%;
     height: auto;
     display: flex;
@@ -36,6 +36,8 @@ background: linear-gradient(295deg, rgba(0,11,221,1) 0%, rgba(56,157,175,1) 49%,
 }
 .titulos--datos{
     margin-bottom: 25px;
+    color: white;
+    text-shadow: 2px 2px rgb(101, 218, 253);
 }
 .menu{
     width: 30%;
@@ -50,10 +52,11 @@ background: linear-gradient(295deg, rgba(0,11,221,1) 0%, rgba(56,157,175,1) 49%,
     }
 }
 .contenido{
+    overflow: hidden;
     width: 100%;
     height: auto;
     min-height: 700px;
-    background: rgb(0,11,221);
+    background: rgba(139, 99, 190, 0.452);
     background: linear-gradient(295deg, rgba(0,11,221,1) 0%, rgba(56,157,175,1) 49%, rgba(16,97,255,1) 100%);
     padding: 30px 10px;
     box-sizing: border-box;
@@ -79,6 +82,12 @@ background: linear-gradient(295deg, rgba(0,11,221,1) 0%, rgba(56,157,175,1) 49%,
         animation-duration: 3s;
         animation-iteration-count: infinite;
     }
+}
+.contenido--datos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .imprime{
     margin-top: 50px;
@@ -232,11 +241,15 @@ background: linear-gradient(295deg, rgba(0,11,221,1) 0%, rgba(56,157,175,1) 49%,
 }
 .liquidacion__tabla{
     margin: auto;
+    width: auto;
+    height: auto;
+    background-color: white;
 }
 #tabla{
     th{
         border: 2px black solid;
-        padding: 2px 15px;
+        padding: 2px 25px;
+        height: auto;
     }
 }
 .tituloTabla{
@@ -328,29 +341,7 @@ input{
 .enfasis{
     font-weight: 800;
 }
-#btnNocturno{
-    margin: 0px 15px 15px 85%;
-    padding: 5px;
-    background-color: blue; 
-    color: rgb(177, 252, 239);
-    font-weight: 800;
-    padding: 5px 10px;
-}
-#btnDiurno{
-    margin: 0px 15px 15px 85%;
-    padding: 5px;
-    display: none;
-}
-.btnDatos{
-    padding: 5px 20px;
-    background-color: rgb(142, 222, 224);
-    color: rgb(6, 4, 105);
-    font-weight: 800;
-    border: solid 1px grey;
-    box-shadow: 1px 0px 11px 1px rgba(0,0,0,1) inset;
-    border-radius: 15%;
-    width: 150px;
-}
+
 .btnDatos:hover{
     background-color: blue;
     color: white;
@@ -422,6 +413,10 @@ input{
         margin: 10px;
         font-weight: 700;
     }
+    button:hover{
+        background-color: rgb(71, 211, 247);
+        transition: 2s;
+    }
 }
 #fotoLiquidacion{
     opacity: 0.1;
@@ -455,6 +450,10 @@ input{
     margin: 10px;
     font-weight: 700;
 }
+#btnEnviar:hover{
+    background-color: rgb(71, 211, 247);
+    transition: 2s;
+}
 #btnLimpiar{
     display: none;
     padding: 10px;
@@ -464,6 +463,10 @@ input{
     background-color: white;
     margin: 10px;
     font-weight: 700;
+}
+#btnLimpiar:hover{
+    background-color: rgb(71, 211, 247);
+    transition: 2s;
 }
 #tituloLiquidacion{
     display: none;
@@ -505,5 +508,94 @@ input{
         border: solid 2px black;
         text-align: center;
         margin: 10px
+    }
+}
+#formCasos{
+    text-align: center;
+    background-color: rgba(34, 177, 221, 0.849);
+    width: 40%;
+    margin: auto;
+    border-radius: 25%;
+    display: none;
+    position: fixed;
+    textarea{
+        padding: 10px;
+    }
+    p{
+        background-color: rgb(47, 94, 197);
+        width: 30px;
+        height: 30px;
+        margin: auto;
+        color: white;
+        font-weight: 800;
+        margin: 5px auto;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    #modificador{
+        width: 85%;
+        height: auto;
+        padding: 5px;
+        text-align: center;
+        margin: auto;
+        label{
+            font-weight: 900;
+        }
+    }
+    #selectorCasos{
+        margin: 10px auto;
+    }
+    #selectorEstados{
+        margin:10px auto;
+    }
+}
+#btnEnviardatos{
+    padding: 10px;
+    border-radius: 25%;
+    border: solid 0.1px white;
+    color: rgb(1, 18, 168);
+    background-color: white;
+    margin: 10px;
+    font-weight: 700;
+}
+
+
+#formAgrega{
+    display: none;
+    text-align: center;
+    background-color: rgba(34, 177, 221, 0.849);
+    width: 40%;
+    margin: auto;
+    border-radius: 25%;
+    position: fixed;
+    textarea{
+        padding: 10px;
+    }
+    p{
+        background-color: rgb(47, 94, 197);
+        width: 30px;
+        height: 30px;
+        margin: auto;
+        color: white;
+        font-weight: 800;
+        margin: 5px auto;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    #agregador{
+        width: 85%;
+        height: auto;
+        padding: 5px;
+        text-align: center;
+        margin: auto;
+        label{
+            font-weight: 900;
+        }
+    }
+    #selectorGestor{
+        margin: 10px auto;
+    }
+    #agregaEstado{
+        margin:10px auto;
     }
 }

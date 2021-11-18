@@ -1,76 +1,54 @@
-/*-------------------menu interactivo----------------------------------*/
+/*//////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////PAGINA DE PRESENTACIÓN//////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/*////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////Menu interactivo//////////////////////////////////////////*/
+/*---------------crea los botones----------------------*/
 $("body").prepend(`<div class="caja__presentacionDos">
     <section>
         <a class="menuInteractivo" href="liquidacion.html">
             <div class="foto__menu"></div>
+            <p class="textoMenu">Liquidaciones</p>
         </a>
         <a class="menuInteractivo" href="datos.html">
-        <div class="foto__menuDos"></div>
+            <div class="foto__menu foto__menu--dos"></div>
+            <p class="textoMenu">Seguimiento <br>de casos</p>
         </a>
     </section>
     </div>`);
-
-$(".caja__presentacionDos").css({"background": "linear-gradient(295deg, rgba(205,0,0,1) 0%, rgba(191,57,57,1) 49%, rgba(134,10,34,1) 100%)", 
+/*---------------aplica estilo a los botones---------------------*/
+$(".caja__presentacionDos").css({"background": "linear-gradient(295deg, rgba(0,11,221,1) 0%, rgba(56,157,175,1) 49%, rgba(16,97,255,1) 100%)", 
 "width": "100vw", "height": "100vh", "animation-name": "aparece", "animation-duration": "2s",
-"padding-top": "200px"});
+"padding-top": "150px"});
 $(".caja__presentacionDos section").css({"width": "90%", 
 "margin": "auto", "display": "flex", "justify-content": "center"});
 $(".caja__presentacionDos a").css({"background-color": "white", "box-shadow": "-1px 1px 63px -7px rgba(255,251,54,0.75)",
- "margin": "10px 50px", "border-radius": "50%"});
+"border-radius": "50%", "width": "300px", "heigth": "300px", "margin":"10px 50px"});
 $(".foto__menu").css({"background-image": "url(./assets/calculadora.png)", 
-"width": "300px", "height": "300px", "background-size": "cover", "display": "inline-block"});
-$(".foto__menuDos").css({"background-image": "url(./assets/base.png)", 
-"width": "300px", "height": "300px", "background-size": "cover", "display": "inline-block"});
-
-$(".menuInteractivo").click(function (){
-    $(".container").show("slow");
-    $(".caja__presentacion").hide();
-    $(".caja__presentacionDos").slideUp("slow");
-});
-
-
-
-/*-----------pagina bienvenida-----------------------------------------*/
-
-$("body").prepend(`<div class="caja__presentacion">
-                    <h3> Bienvenido al Sistema de Liquidaciones online </h3>
-                    <div id="izquierda">
-                        <p class="textoUno">Facil <br>de usar</p><br>
-                        <p class="textoDos">intuitivo</p>
-                        
-                    </div>
-                    <div id="centro"><img src="./assets/liquidaciones.png"></div>
-                    <div id="derecha">
-                        <p class="texTres">Accesible</p><br>
-                        <p class="textoCuatro">interfaz<br> amigable</p>
-                    </div>
-                    
-</div>`);
-
-
-
-
+"width": "200px", "height": "200px", "display": "flex", "background-size": "cover", "margin": "auto"});
+$(".foto__menu--dos").css({"background-image": "url(./assets/base.png)"});
+$(".textoMenu").css({"color": "rgb(5, 106, 221)", "font-weight": "800", "font-size": "1.5em"}); 
+$(".menuInteractivo").css({"text-decoration": "none", "text-align": "center"});
+/*////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////Página de presntacion//////////////////////////////////////////*/
+/*----------------------------aplica estilo a la página-------------------------------------*/
+$("body").prepend(`<div class="caja__presentacion"><button id="btnEntrar">Entrar</button></div>`);
 $(".container").css({"display": "none"});
 $(".caja__presentacionDos").css({"display": "none"});
-$("#centro").css({"width": "auto"});
-$("#izquierda").css({"width": "28%", "height": "500px", "display": "flex", "flex-direction": "column", "justify-content": "space-evenly", 
-"align-items": "center"
-});
-$("#derecha").css({"width": "28%", "height": "500px", "display": "flex", "flex-direction": "column", "justify-content": "space-evenly",
-"align-items": "center"
-});
-
-$(".caja__presentacion").css({"background": "linear-gradient(295deg, rgba(205,0,0,1) 0%, rgba(191,57,57,1) 49%, rgba(134,10,34,1) 100%)", 
+$(".caja__presentacion").css({"background-image": "url(./assets/portadafondo.JPG)", 
 "width": "100vw", "height": "100vh", "display": "flex", "justify-content": "center",
-"flex-wrap": "wrap", "animation-name": "aparece", "animation-duration": "2s"
-});
-$("#centro img").css({"border-radius": "50%", "margin": "auto", "box-shadow": "-1px 1px 63px -7px rgba(255,251,54,0.75)",
-"width": "350px", "height": "350px", "animation-name": "aparece", 
-"cursor": "pointer", "animation-duration": "2s"});
-$(".caja__presentacion h3").css({"color": "white", "font-weigth": "900", "text-align": "center",
-"width": "100%", "font-size": "2.5em", "margin-top": "50px"})
-
-$(".caja__presentacion img").click(function (){
+"animation-name": "aparece", "animation-duration": "2s", "align-items": "flex-end", 
+"background-size": "cover", "padding": "120px"});
+$("#btnEntrar").css({"background": "rgb(4, 108, 226)", 
+"width": "100px", "height": "60px", "border-radius": "30%", "font-weight": "800",
+"font-size":"1.5em", "color": "white"})
+.hide()
+.delay(1000)
+.fadeIn(2000);
+/*----------------otorga fncionamiento al boton Entrar--------------------------------*/
+$("#btnEntrar").click(function (){
     $(".caja__presentacionDos").slideDown("1500");
     $(".caja__presentacion").slideUp("1500");
 });
+
