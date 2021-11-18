@@ -47,7 +47,7 @@ $("#formAgrega").submit(function (e) {
     console.log("gestor" + agregaGestor)
     let agregaEstado = document.getElementById('agregaEstado').value;
     console.log("estado" + agregaEstado);
-    let agregaObservacion = formulario.agregador.children[5].value;
+    let agregaObservacion = formulario.agregador.children[11].value;
     console.log("observacion" + agregaObservacion);
     let nuevoNombre = formulario.agregador.children[1].value;
     console.log("nombre" + nuevoNombre);
