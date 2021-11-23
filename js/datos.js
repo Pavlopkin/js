@@ -1,22 +1,18 @@
 /*//////////////////////////////////////////////////////////////////////////////////////////////////    
 ////////////////////////////////////CASOS///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////*/
-const contribuyentes = [
-    {id:1, gestor: "MAU", nombre:'CONTRIBUYENTE UNO', estado:'PREVIO', observaciones: "DENUN FECHA Y NRO MC"},
-    {id:2, gestor: "MAU", nombre:'CONTRIBUYENTE DOS', estado:'PREVIO', observaciones: "ADJUNTAR ACUERDO LEGIBLE"},
-    {id:3, gestor: "MAX", nombre:'CONTRIBUYENTE TRES', estado:'PREVIO', observaciones: "ACREDITAR MC"},
-    {id:4, gestor: "MAX", nombre:'CONTRIBUYENTE CUATRO', estado:'PREVIO', observaciones: "ACREDITAR TRABA MC"},
-    {id:5, gestor: "NAT", nombre:'CONTRIBUYENTE CINCO', estado:'PEDIDO', observaciones: "SOLICITA LEVANT MC"},
-    {id:6, gestor: "MAX", nombre:'CONTRIBUYENTE SEIS', estado:'INGRESADO', observaciones: "REGISTRO PROPIEDAD INMUEBLE"},
-    {id:7, gestor: "NAT", nombre:'CONTRIBUYENTE SIETE', estado:'INGRESADO', observaciones: "REGISTRO PROPIEDAD INMUEBLE"},
-    {id:8, gestor: "MAX", nombre:'CONTRIBUYENTE OCHO', estado:'INGRESADO', observaciones: "REGISTRO PROPIEDAD INMUEBLE"},
-    {id:9, gestor: "MAX", nombre:'CONTRIBUYENTE NUEVE', estado:'CONFRONTE', observaciones: "OFICIO IGB RPA"},
-    {id:10, gestor: "MAX", nombre:'CONTRIBUYENTE DIEZ', estado:'PREVIO', observaciones: "ACLARAR DESISTIMIENTO"},
-    {id:11, gestor: "MAX", nombre:'CONTRIBUYENTE ONCE', estado:'INGRESADO', observaciones: "REGISTRO PROPIEDAD INMUEBLE"},
-    {id:12, gestor: "MAU", nombre:'CONTRIBUYENTE DOCE', estado:'INGRESADO', observaciones: "REGISTRO PROPIEDAD INMUEBLE"},
-    {id:13, gestor: "PER", nombre:'CONTRIBUYENTE TRECE', estado:'PEDIDO', observaciones: "SOLICITA LEVANTAMIENTO MC"},
-    {id:14, gestor: "PER", nombre:'CONTRIBUYENTE CATORCE', estado:'PEDIDO', observaciones: "SOLICITA LEVANTAMIENTO MC"},
-    ];
+const contribuyentes = [];
+/*------------------------trae los datos de una api------------------------------------*/
+const URLGET = "https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23"
+$.get(URLGET, function (respuesta, estado) {
+    if(estado === "success"){
+        let misDatos = respuesta;
+        for (const dato of misDatos) {
+                contribuyentes.push({id:dato.id, gestor: dato.species.toUpperCase(), nombre:dato.name.toUpperCase(), estado:dato.status.toUpperCase(), observaciones: dato.origin.name.toUpperCase()});    
+        }  
+        estructuraTabla();
+    }
+});
 /*//////////////////////////////////////////////////////////////////////////////////////////////////    
 ////////////////////////////////////FUNCIONES///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -51,7 +47,7 @@ $("#formAgrega").submit(function (e) {
     console.log("observacion" + agregaObservacion);
     let nuevoNombre = formulario.agregador.children[1].value;
     console.log("nombre" + nuevoNombre);
-    contribuyentes.push({id: agregaID, gestor: agregaGestor, nombre:nuevoNombre, estado:agregaEstado, observaciones: agregaObservacion});
+    contribuyentes.push({id: agregaID, gestor: agregaGestor, nombre:nuevoNombre.toUpperCase(), estado:agregaEstado, observaciones: agregaObservacion.toUpperCase()});
     muestraPantalla()
     document.getElementById('formAgrega').reset();
     });
@@ -117,7 +113,7 @@ function cabecera(){
 ----------------------------se ejecuta dentro de varias funciones--------------------------------------*/
 function estructuraTabla(){
     for (const contribuyente of contribuyentes) {
-        $("#tabla").prepend(`<tr>
+        $("#tabla").append(`<tr>
         <th>${contribuyente.id}</th>
         <th>${contribuyente.gestor}</th>
         <th>${contribuyente.nombre}</th>
@@ -178,6 +174,20 @@ function ordenGestor(){
     estructuraTabla();
     cabecera();
 }
+function ordenId(){
+    eliminaDos();
+    creaNodo();
+    contribuyentes.sort(function(a,b) {
+        if (a.id > b.id) {
+        return 1;
+        } else if (a.id < b.id) {
+        return  -1;
+        } 
+        return 0;
+    });
+    estructuraTabla();
+    cabecera();
+}
 /*-------------------botones de filtros al listado---------------------------------------------*/
 let botonGestor = document.getElementById("btnGestor");
 botonGestor.onclick = () =>{ordenGestor()};
@@ -187,6 +197,11 @@ botonNombre.onclick = () =>{ordenNombre()};
 
 let botonEstado = document.getElementById("btnEstado");
 botonEstado.onclick = () =>{ordenEstado()};
+
+let botonID = document.getElementById("btnID");
+botonID.onclick = () =>{ordenId()};
+
+ordenId();
 
 
 

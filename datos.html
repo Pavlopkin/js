@@ -43,20 +43,10 @@
                     <input type="submit" value="enviar">
                 </form>
             </div>
+        
+          
         </header>    
         <div class="contenido contenido--datos">
-            <div class="submenu">
-                <ul id="usuario">
-                </ul>
-            </div>
-            <h1 class="titulos titulos--datos">Control de Casos Judiciales</h1>
-            <div class="botonera">
-                <button id="btnGestor" class="btnDatos">Ordenar por Gestor</button>       
-                <button id="btnNombre" class="btnDatos">Ordenar por Nombre</button>  
-                <button id="btnEstado" class="btnDatos">Ordenar por Estado</button>    
-                <button id="btnCambiar" class="btnDatos">Modificar caso</button> 
-                <button id="btnAgregar" class="btnDatos">Agregar caso</button> 
-            </div>
             <form id="formCasos">
                 <p>x</p>
                 <fieldset id="modificador">
@@ -77,7 +67,75 @@
             <form id="formAgrega">
                 <p>x</p>
                 <fieldset id="agregador">
-                    <label for="contribuyente">Ingrese nombre y apellido del contribuyente</label>
+                    <label for="contribuyente">Ingrese nombre y apellido</label>
+                    <input type="text" name="contribuyente"><br>
+                    <label for="selectorGestor">Seleccione el Gestor</label><br>
+                    <select id="selectorGestor" name="selectorGestor">
+                        <option value="MAU">MAU</option>
+                        <option value="MAX" selected>MAX</option>
+                        <option value="PER">PER</option>
+                    </select><br>
+                    <label for="agregaEstados">Seleccione el estado</label><br>
+                    <select id="agregaEstado" name="agregaEstados">
+                        <option value="PREVIO">PREVIO</option>
+                        <option value="PEDIDO" selected>PEDIDO</option>
+                        <option value="INGRESADO">INGRESADO</option>
+                        <option value="CONFRONTE">CONFRONTE</option>
+                        <option value="TERMINADO">TERMINADO</option>
+                    </select><br>
+                    <textarea id="agregaObservacion" name="textarea" rows="5" cols="40" onclick='this.value=""'>Ingrese más información sobre el caso</textarea>
+                </fieldset>
+                <input id="btnAgregadatos" type="submit" value="enviar" class="btnform">
+            </form> 
+            <div class="submenu">
+                <ul id="usuario">
+                </ul>
+            </div>
+            <h1 class="titulos titulos--datos">Control de Casos Judiciales</h1>
+            <div class="botonera">
+                <ul class="nav nav-pills menuTabla">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Ordenar</a>
+                    <ul class="dropdown-menu">    
+                        <li><a class="dropdown-item" id="btnGestor">Gestor</a></li>
+                        <li><a class="dropdown-item" id="btnNombre">Nombre</a></li>
+                        <li><a class="dropdown-item" id="btnEstado">Estado</a></li>
+                        <li><a class="dropdown-item" id="btnID">ID</a></li>
+                    </ul>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" id="btnCambiar">Modificar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" id="btnAgregar" >Agregar</a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+            
+            <form id="formCasos">
+                <p>x</p>
+                <fieldset id="modificador">
+                    <label for="selectorCasos">Seleccione el caso</label><br>
+                    <select id="selectorCasos" name="selectorCasos"></select>
+                    <label for="selectorEstados">Seleccione el estado</label><br>
+                    <select id="selectorEstados" name="selectorEstados">
+                        <option value="PREVIO">PREVIO</option>
+                        <option value="PEDIDO" selected>PEDIDO</option>
+                        <option value="INGRESADO">INGRESADO</option>
+                        <option value="CONFRONTE">CONFRONTE</option>
+                        <option value="TERMINADO">TERMINADO</option>
+                      </select>
+                    <textarea id="nuevaObservacion" name="textarea" rows="5" cols="40" onclick='this.value=""'>Ingrese una nueva observación...</textarea>
+                </fieldset>
+                <input id="btnEnviardatos" type="submit" value="enviar" class="btnform">
+            </form> 
+            <form id="formAgrega">s
+                <p>x</p>
+                <fieldset id="agregador">
+                    <label for="contribuyente">Ingrese nombre y apellido</label>
                     <input type="text" name="contribuyente"><br>
                     <label for="selectorGestor">Seleccione el Gestor</label><br>
                     <select id="selectorGestor" name="selectorGestor">

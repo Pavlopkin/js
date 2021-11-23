@@ -87,7 +87,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content:flex-start;
 }
 .imprime{
     margin-top: 50px;
@@ -512,21 +512,22 @@ input{
 }
 #formCasos{
     text-align: center;
-    background-color: rgba(34, 177, 221, 0.849);
+    background-color: rgba(5, 72, 173, 0.966);
     width: 40%;
     margin: auto;
     border-radius: 25%;
     display: none;
     position: fixed;
+    z-index: 3;
     textarea{
         padding: 10px;
     }
     p{
-        background-color: rgb(47, 94, 197);
+        background-color: rgb(255, 255, 255);
         width: 30px;
         height: 30px;
         margin: auto;
-        color: white;
+        color: rgb(47, 94, 197);
         font-weight: 800;
         margin: 5px auto;
         border-radius: 50%;
@@ -540,6 +541,8 @@ input{
         margin: auto;
         label{
             font-weight: 900;
+            color: white;
+            font-size: 1.7em;
         }
     }
     #selectorCasos{
@@ -563,20 +566,21 @@ input{
 #formAgrega{
     display: none;
     text-align: center;
-    background-color: rgba(34, 177, 221, 0.849);
+    background-color: rgba(5, 72, 173, 0.966);
     width: 40%;
     margin: auto;
     border-radius: 25%;
     position: fixed;
+    z-index: 2;
     textarea{
         padding: 10px;
     }
     p{
-        background-color: rgb(47, 94, 197);
+        background-color: white;
         width: 30px;
         height: 30px;
         margin: auto;
-        color: white;
+        color: rgb(47, 94, 197);
         font-weight: 800;
         margin: 5px auto;
         border-radius: 50%;
@@ -590,6 +594,8 @@ input{
         margin: auto;
         label{
             font-weight: 900;
+            color: white;
+            font-size: 1.7em;
         }
     }
     #selectorGestor{
@@ -597,5 +603,20 @@ input{
     }
     #agregaEstado{
         margin:10px auto;
+    }
+}
+#SelectorOrdena{
+    display: block;
+}
+.menuTabla{
+    background-color: rgba(255, 255, 255, 0.76);
+    display: flex;
+    justify-content: space-between; 
+    width: 50%;
+    padding: 10px; 
+    border-radius: 15px;
+    font-weight: 600;
+    a{
+        cursor: pointer;
     }
 }
