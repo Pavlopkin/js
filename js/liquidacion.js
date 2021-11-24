@@ -31,7 +31,9 @@ $("#formularioDos").submit(function (e) {
         intereses = 0;
     }
     let mensajeFecha = day+"/"+month+"/"+year+" hasta "+day2+"/"+month2+"/"+year2; /*--ordena fecha para mostrar en DOM ---*/
-    calculaLiquidacion(monto, porcentaje, dias, mensajeFecha);
+    /*reune los valores que se ulizarán para calcular la liquidación*/
+    const valoresIngresados = {monto: monto, porcentaje: porcentaje, dias: dias, mensajeFecha:mensajeFecha};
+    calculaLiquidacion(valoresIngresados);
     document.getElementById('formularioDos').reset();
 });
 /*--------marca los errores en la carga del formulario--------------------------*/
@@ -40,9 +42,19 @@ $("#dia1").change(function(){
         $("#dia1").css({"border": "red solid 3px"});
     }
 });
+$("#dia1").change(function(){
+    if($("#dia1").val() <= 31){
+        $("#dia1").css({"border": "solid 1px rgb(1, 8, 100)"});
+    }
+});
 $("#dia2").change(function(){
     if($("#dia2").val() > 31){
         $("#dia2").css({"border": "red solid 3px"});
+    }
+});
+$("#dia2").change(function(){
+    if($("#dia2").val() <= 31){
+        $("#dia2").css({"border": "solid 1px rgb(1, 8, 100)"});
     }
 });
 $("#mes1").change(function(){
@@ -50,9 +62,19 @@ $("#mes1").change(function(){
         $("#mes1").css({"border": "red solid 3px"});
     }
 });
+$("#mes1").change(function(){
+    if($("#mes1").val() <= 12){
+        $("#mes1").css({"border": "solid 1px rgb(1, 8, 100)"});
+    }
+});
 $("#mes2").change(function(){
     if($("#mes2").val() > 12){
         $("#mes2").css({"border": "red solid 3px"});
+    }
+});
+$("#mes2").change(function(){
+    if($("#mes2").val() <= 12){
+        $("#mes2").css({"border": "solid 1px rgb(1, 8, 100)"});
     }
 });
 $("#anio2").change(function(){
@@ -60,38 +82,49 @@ $("#anio2").change(function(){
         $("#anio2").css({"border": "red solid 3px"});
     }
 });
+$("#anio2").change(function(){
+    if($("#anio1").val() < $("#anio2").val()){
+        $("#anio2").css({"border": "solid 1px rgb(1, 8, 100)"});
+    }
+});
 /*//////////////////////////////////////////////////////////////////////////////////
 ////////FUNCION QUE CALCULA LA LIQUIDACIÓN////////////////////////
 /////////////////////////////////////////////////////////////////////////////////*/
-function calculaLiquidacion(a, b, c, d){ /*monto, porcentaje dias y fecha ordenada ingresan como parámetros*/
+function calculaLiquidacion(valoresIngresados){ 
     let intPunitorios = 0;
     let tasa = 0;
     let sTasa = 0;
     let iva= 0;
-    /* intereses */
-    let intereses = a  * (b/100) *  (c/365);
+    /*calcula intereses*/
+    let intereses = valoresIngresados.monto  * (valoresIngresados.porcentaje/100) *  (valoresIngresados.dias/365);
+    console.log(intereses);
     /*punitorios*/
     if (document.getElementById('radio1').checked){
         intPunitorios = intereses * 0.5;
+        console.log(intPunitorios);
     }
     else if(document.getElementById('radio2').checked){
         intPunitorios = 0;
+        console.log(intPunitorios);
     }
     /*iva*/
     if (document.getElementById('radio8').checked){   
         iva = ((intereses+ intPunitorios) * 0.21);
+        console.log(iva);
     }
     else if(document.getElementById('radio9').checked){
         iva = 0;
+        console.log(iva);
     }
     /*subtotal*/
-    subtotal = (parseFloat(a) + parseFloat(intereses) + parseFloat(intPunitorios) + iva);
+    subtotal = (parseFloat(valoresIngresados.monto) + parseFloat(intereses) + parseFloat(intPunitorios) + iva);
+        console.log(subtotal);
     /*tasa*/
     if (document.getElementById('radio3').checked){
-        tasa = a * 0.03;
+        tasa = valoresIngresados.monto * 0.03;
     }
     if(document.getElementById('radio4').checked){
-        tasa = a * 0.022;
+        tasa = valoresIngresados.monto * 0.022;
     }
     if(document.getElementById('radio5').checked){
         tasa = 0;  
@@ -104,7 +137,10 @@ function calculaLiquidacion(a, b, c, d){ /*monto, porcentaje dias y fecha ordena
         sTasa = 0;
     }
     let totalLiquidacion = subtotal + tasa + sTasa;
-    muestraResultado(a, b, d, intereses, intPunitorios, iva, subtotal, tasa, sTasa, totalLiquidacion);
+    console.log(totalLiquidacion);
+    /*reune los resultados de la liquidación*/
+    const rubrosLiquidacion = {monto: valoresIngresados.monto, porcentaje: valoresIngresados.porcentaje, fecha: valoresIngresados.mensajeFecha, intereses: intereses, intPunitorios: intPunitorios, iva: iva, subtotal: subtotal, tasa: tasa, sTasa: sTasa, totalLiquidacion: totalLiquidacion}
+    muestraResultado(rubrosLiquidacion);
 }
 /*//////////////////////////////Muestra el resultado en el DOM////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////*/
@@ -122,68 +158,58 @@ function eliminaDos(){
     creaNodo();
 }
 /*--------------------------imprime el resultado en pantalla------------------------------*/
-function muestraResultado(a, b, d, i, ip, iv, s, t, sT, tl){
-    /* a = monto
-       b = porcentaje
-       d = fechas liquidacion
-       i = intereses
-       ip = interes punitorio
-       iv = iva
-       s = subtotal
-       t = tasa de justicia
-       sT = sobre Tasa
-       tl = total liquidación
-    */
+function muestraResultado(rubrosLiquidacion){
     eliminaDos();
     $("#liquidacion").prepend(`     
                                     <h3 id="atencion"> ATENCIÓN: <br><br> Se ha producido un error, vuelva a ingresar los datos y presione enviar.</h3>
-                                    <p id="capital">Capital..................................................................$${a}.-</p>
-                                    <p id="resultadoInteres">Interés compensatorio (TNA ${b}%) desde <br> 
-                                    ${d}.................$${i.toFixed(2)}.-</p>
-                                    <p id="resultadoPun">Interés punitorio..............................................$${ip.toFixed(2)}.-</p>
-                                    <p id="resultadoIVA">IVA sobre intereses..........................................$${iv.toFixed(2)}.-</p>
-                                    <p id="resultadoSub" class="enfasis">Subtotal........................................$${s.toFixed(2)}.-</p>
-                                    <p id="resultadoTasa">Tasa de justicia..................................................$${t.toFixed(2)}.-</p>
-                                    <p id="resultadoST"> Sobre Tasa..........................................................$${sT.toFixed(2)}.-</p>
-                                    <p id="total" class="enfasis">TOTAL...........................................$${tl.toFixed(2)}.-</p>
+                                    <p id="capital">Capital..................................................................$${rubrosLiquidacion.monto}.-</p>
+                                    <p id="resultadoInteres">Interés compensatorio (TNA ${rubrosLiquidacion.porcentaje}%) desde <br> 
+                                    ${rubrosLiquidacion.fecha}.................$${rubrosLiquidacion.intereses.toFixed(2)}.-</p>
+                                    <p id="resultadoPun">Interés punitorio..............................................$${rubrosLiquidacion.intPunitorios.toFixed(2)}.-</p>
+                                    <p id="resultadoIVA">IVA sobre intereses..........................................$${rubrosLiquidacion.iva.toFixed(2)}.-</p>
+                                    <p id="resultadoSub" class="enfasis">Subtotal........................................$${rubrosLiquidacion.subtotal.toFixed(2)}.-</p>
+                                    <p id="resultadoTasa">Tasa de justicia..................................................$${rubrosLiquidacion.tasa.toFixed(2)}.-</p>
+                                    <p id="resultadoST"> Sobre Tasa..........................................................$${rubrosLiquidacion.sTasa.toFixed(2)}.-</p>
+                                    <p id="total" class="enfasis">TOTAL...........................................$${rubrosLiquidacion.totalLiquidacion.toFixed(2)}.-</p>
                                     `);
-    if(sT != 0){
+    if(rubrosLiquidacion.subtotal != 0){
         $("#resultadoST").show();
     }
-    if(t != 0){
+    if(rubrosLiquidacion.tasa != 0){
         $("#resultadoTasa").show();
     }
-    if((t === 0)&&(sT === 0)){
+    if((rubrosLiquidacion.tasa === 0)&&(rubrosLiquidacion.sTasa === 0)){
         $("#resultadoSub").hide();
     }
-    if(ip === 0){
+    if(rubrosLiquidacion.intPunitorios === 0){
         $("#resultadoPun").hide();
     }
-    if(iv === 0) {
+    if(rubrosLiquidacion.iva === 0) {
         $("#resultadoIVA").hide();
     } 
-    if (a === ""){
+    if (rubrosLiquidacion.monto === ""){
         $("#total").hide();
         $("#capital").hide();
         $("#resultadoInteres").hide();
         $("#atencion").show();
-        
     }
-    if (a === 0){
+    if (rubrosLiquidacion.monto === 0){
         $("#total").hide();
         $("#capital").hide();
         $("#resultadoInteres").hide();
         $("#atencion").show();
-        
     }
-    if (isNaN(i)){
+    if (isNaN(rubrosLiquidacion.intereses)){
         $("#resultadoInteres").hide();
     }
-    if (isNaN(s)){
+    if (isNaN(rubrosLiquidacion.subtotal)){
         $("#resultadoSub").hide();
     }
-    if (isNaN(tl)){
+    if (isNaN(rubrosLiquidacion.totalLiquidacion)){
         $("#total").hide();
+    }
+    if (rubrosLiquidacion.sTasa === 0){
+        $("#resultadoST").hide();
     }
 }
 /*---------------controla desplegable sobre tasa en formulario #sTasa-------------*/

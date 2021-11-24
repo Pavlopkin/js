@@ -410,31 +410,17 @@ input {
   display: none; }
 
 #btnEnviar {
-  display: none;
-  padding: 10px;
-  border-radius: 25%;
-  border: solid 0.1px white;
-  color: #0112a8;
-  background-color: white;
-  margin: 10px;
-  font-weight: 700; }
+  display: none; }
 
 #btnEnviar:hover {
-  background-color: #47d3f7;
+  background-color: #a77cec;
   transition: 2s; }
 
 #btnLimpiar {
-  display: none;
-  padding: 10px;
-  border-radius: 25%;
-  border: solid 0.1px white;
-  color: #0112a8;
-  background-color: white;
-  margin: 10px;
-  font-weight: 700; }
+  display: none; }
 
 #btnLimpiar:hover {
-  background-color: #47d3f7;
+  background-color: #a77cec;
   transition: 2s; }
 
 #tituloLiquidacion {
@@ -564,10 +550,24 @@ input {
 .menuTabla {
   background-color: rgba(255, 255, 255, 0.76);
   display: flex;
-  justify-content: space-between;
-  width: 50%;
+  justify-content: center;
+  width: 90%;
   padding: 10px;
   border-radius: 15px;
   font-weight: 600; }
   .menuTabla a {
-    cursor: pointer; }
+    cursor: pointer;
+    margin-right: 25px; }
+
+#formularioDos {
+  background-color: rgba(140, 0, 255, 0.116); }
+  #formularioDos input {
+    border: solid 1px #010864;
+    border-radius: 15%;
+    padding: 3px;
+    text-align: center; }
+  #formularioDos button {
+    border: solid 1px #010864;
+    border-radius: 15%;
+    padding: 3px;
+    text-align: center; }

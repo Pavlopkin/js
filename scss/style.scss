@@ -57,7 +57,7 @@ body{
     height: auto;
     min-height: 700px;
     background: rgba(139, 99, 190, 0.452);
-    background: linear-gradient(295deg, rgba(0,11,221,1) 0%, rgba(56,157,175,1) 49%, rgba(16,97,255,1) 100%);
+    background: linear-gradient(295deg, rgba(0,11,221,1) 0%, rgba(56,157,175,1) 49%, rgba(16,97,255,1) 100%); 
     padding: 30px 10px;
     box-sizing: border-box;
     .contenido__presentacion{
@@ -442,30 +442,18 @@ input{
 }
 #btnEnviar{
     display: none;
-    padding: 10px;
-    border-radius: 25%;
-    border: solid 0.1px white;
-    color: rgb(1, 18, 168);
-    background-color: white;
-    margin: 10px;
-    font-weight: 700;
+   
 }
 #btnEnviar:hover{
-    background-color: rgb(71, 211, 247);
+    background-color: rgb(167, 124, 236);
     transition: 2s;
 }
 #btnLimpiar{
     display: none;
-    padding: 10px;
-    border-radius: 25%;
-    border: solid 0.1px white;
-    color: rgb(1, 18, 168);
-    background-color: white;
-    margin: 10px;
-    font-weight: 700;
+
 }
 #btnLimpiar:hover{
-    background-color: rgb(71, 211, 247);
+    background-color: rgb(167, 124, 236);
     transition: 2s;
 }
 #tituloLiquidacion{
@@ -611,12 +599,28 @@ input{
 .menuTabla{
     background-color: rgba(255, 255, 255, 0.76);
     display: flex;
-    justify-content: space-between; 
-    width: 50%;
+    justify-content: center; 
+    width: 90%;
     padding: 10px; 
     border-radius: 15px;
     font-weight: 600;
     a{
         cursor: pointer;
+        margin-right: 25px;
+    }
+}
+#formularioDos{
+    background-color: rgba(140, 0, 255, 0.116);
+    input{
+        border: solid 1px rgb(1, 8, 100);
+        border-radius: 15%;
+        padding: 3px;
+        text-align: center;
+    }
+    button{
+        border: solid 1px rgb(1, 8, 100);
+        border-radius: 15%;
+        padding: 3px;
+        text-align: center;
     }
 }

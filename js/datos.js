@@ -101,7 +101,7 @@ $("#formCasos p").click(function (){
 /*--------------------------Crea la cabecera de la tabla----------------------------
 ----------------------------se ejecuta dentro de varias funciones------------------------------*/
 function cabecera(){
-        $("#tabla").prepend(`<tr class="imprime">
+        $("#tabla").append(`<tr class="imprime">
         <th class="tituloTabla borra">ID</th>
         <th class="tituloTabla borra">Gestor</th>
         <th class="tituloTabla borra">Nombre</th>
@@ -126,8 +126,8 @@ function estructuraTabla(){
 }
 /*-------------------------imprime el listado en el orden en que se cargaron los casos-----*/
 function muestraPantalla(){
-    estructuraTabla();
     cabecera();
+    estructuraTabla();
 }
 /*--------------------------ordena el listado por Nombre-----------------------------------*/
 function ordenNombre(){
@@ -141,8 +141,8 @@ function ordenNombre(){
         } 
         return 0;
     });
-    estructuraTabla();
     cabecera();
+    estructuraTabla();
 }
 /*--------------------------ordena el listado por Estado-----------------------------------*/
 function ordenEstado(){
@@ -156,8 +156,8 @@ function ordenEstado(){
         } 
         return 0;
     });
-    estructuraTabla();
     cabecera();
+    estructuraTabla();
 }
 /*--------------------------ordena el listado por gestor-----------------------------------*/
 function ordenGestor(){
@@ -171,8 +171,8 @@ function ordenGestor(){
         } 
         return 0;
     });
-    estructuraTabla();
     cabecera();
+    estructuraTabla();
 }
 function ordenId(){
     eliminaDos();
@@ -185,8 +185,8 @@ function ordenId(){
         } 
         return 0;
     });
-    estructuraTabla();
     cabecera();
+    estructuraTabla();
 }
 /*-------------------botones de filtros al listado---------------------------------------------*/
 let botonGestor = document.getElementById("btnGestor");

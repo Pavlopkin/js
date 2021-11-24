@@ -3,9 +3,30 @@
 //////////////////////////////////////////////////////////////////////////////////////////////// */
 
 /*////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////Página de presentacion//////////////////////////////////////////*/
+/*----------------------------aplica estilo a la página-------------------------------------*/
+$("body").append(`<div class="caja__presentacion"><button id="btnEntrar">Entrar</button></div>`);
+$(".container").css({"display": "none"});
+$(".caja__presentacionDos").css({"display": "none"});
+$(".caja__presentacion").css({"background-image": "url(./assets/portadafondo.JPG)", 
+"width": "100vw", "height": "100vh", "display": "flex", "justify-content": "center",
+"animation-name": "aparece", "animation-duration": "2s", "align-items": "flex-end", 
+"background-size": "cover", "padding": "120px"});
+$("#btnEntrar").css({"background": "rgb(4, 108, 226)", 
+"width": "100px", "height": "60px", "border-radius": "30%", "font-weight": "800",
+"font-size":"1.5em", "color": "white"})
+.hide()
+.delay(1000)
+.fadeIn(500);
+/*----------------otorga fncionamiento al boton Entrar--------------------------------*/
+$("#btnEntrar").click(function (){
+    $(".caja__presentacionDos").slideDown("1500");
+    $(".caja__presentacion").slideUp("1500");
+});
+/*////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////Menu interactivo//////////////////////////////////////////*/
 /*---------------crea los botones----------------------*/
-$("body").prepend(`<div class="caja__presentacionDos">
+$("body").append(`<div class="caja__presentacionDos">
     <section>
         <a class="menuInteractivo" href="liquidacion.html">
             <div class="foto__menu"></div>
@@ -30,25 +51,5 @@ $(".foto__menu").css({"background-image": "url(./assets/calculadora.png)",
 $(".foto__menu--dos").css({"background-image": "url(./assets/base.png)"});
 $(".textoMenu").css({"color": "rgb(5, 106, 221)", "font-weight": "800", "font-size": "1.5em"}); 
 $(".menuInteractivo").css({"text-decoration": "none", "text-align": "center"});
-/*////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////Página de presntacion//////////////////////////////////////////*/
-/*----------------------------aplica estilo a la página-------------------------------------*/
-$("body").prepend(`<div class="caja__presentacion"><button id="btnEntrar">Entrar</button></div>`);
-$(".container").css({"display": "none"});
-$(".caja__presentacionDos").css({"display": "none"});
-$(".caja__presentacion").css({"background-image": "url(./assets/portadafondo.JPG)", 
-"width": "100vw", "height": "100vh", "display": "flex", "justify-content": "center",
-"animation-name": "aparece", "animation-duration": "2s", "align-items": "flex-end", 
-"background-size": "cover", "padding": "120px"});
-$("#btnEntrar").css({"background": "rgb(4, 108, 226)", 
-"width": "100px", "height": "60px", "border-radius": "30%", "font-weight": "800",
-"font-size":"1.5em", "color": "white"})
-.hide()
-.delay(1000)
-.fadeIn(2000);
-/*----------------otorga fncionamiento al boton Entrar--------------------------------*/
-$("#btnEntrar").click(function (){
-    $(".caja__presentacionDos").slideDown("1500");
-    $(".caja__presentacion").slideUp("1500");
-});
+
 

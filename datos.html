@@ -34,17 +34,6 @@
                     </div>
                 </nav>
             </div>
-            <div  class="menuDerecha">
-                <form id="formularioLogin">
-                    <label for="usuario">Usuario</label>
-                    <input type="text" name="usuario" class="login__casillero">
-                    <label for="contraseña">Contraseña</label>
-                    <input type="password" name="contraseña" class="login__casillero">
-                    <input type="submit" value="enviar">
-                </form>
-            </div>
-        
-          
         </header>    
         <div class="contenido contenido--datos">
             <form id="formCasos">
@@ -59,7 +48,7 @@
                         <option value="INGRESADO">INGRESADO</option>
                         <option value="CONFRONTE">CONFRONTE</option>
                         <option value="TERMINADO">TERMINADO</option>
-                      </select>
+                    </select>
                     <textarea id="nuevaObservacion" name="textarea" rows="5" cols="40" onclick='this.value=""'>Ingrese una nueva observación...</textarea>
                 </fieldset>
                 <input id="btnEnviardatos" type="submit" value="enviar" class="btnform">
@@ -87,10 +76,6 @@
                 </fieldset>
                 <input id="btnAgregadatos" type="submit" value="enviar" class="btnform">
             </form> 
-            <div class="submenu">
-                <ul id="usuario">
-                </ul>
-            </div>
             <h1 class="titulos titulos--datos">Control de Casos Judiciales</h1>
             <div class="botonera">
                 <ul class="nav nav-pills menuTabla">
@@ -103,62 +88,16 @@
                         <li><a class="dropdown-item" id="btnID">ID</a></li>
                     </ul>
                     </li>
-                    
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" id="btnCambiar">Modificar</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" id="btnAgregar" >Agregar</a>
                     </li>
-                    
-                    
                 </ul>
             </div>
-            
-            <form id="formCasos">
-                <p>x</p>
-                <fieldset id="modificador">
-                    <label for="selectorCasos">Seleccione el caso</label><br>
-                    <select id="selectorCasos" name="selectorCasos"></select>
-                    <label for="selectorEstados">Seleccione el estado</label><br>
-                    <select id="selectorEstados" name="selectorEstados">
-                        <option value="PREVIO">PREVIO</option>
-                        <option value="PEDIDO" selected>PEDIDO</option>
-                        <option value="INGRESADO">INGRESADO</option>
-                        <option value="CONFRONTE">CONFRONTE</option>
-                        <option value="TERMINADO">TERMINADO</option>
-                      </select>
-                    <textarea id="nuevaObservacion" name="textarea" rows="5" cols="40" onclick='this.value=""'>Ingrese una nueva observación...</textarea>
-                </fieldset>
-                <input id="btnEnviardatos" type="submit" value="enviar" class="btnform">
-            </form> 
-            <form id="formAgrega">s
-                <p>x</p>
-                <fieldset id="agregador">
-                    <label for="contribuyente">Ingrese nombre y apellido</label>
-                    <input type="text" name="contribuyente"><br>
-                    <label for="selectorGestor">Seleccione el Gestor</label><br>
-                    <select id="selectorGestor" name="selectorGestor">
-                        <option value="MAU">MAU</option>
-                        <option value="MAX" selected>MAX</option>
-                        <option value="PER">PER</option>
-                    </select><br>
-                    <label for="agregaEstados">Seleccione el estado</label><br>
-                    <select id="agregaEstado" name="agregaEstados">
-                        <option value="PREVIO">PREVIO</option>
-                        <option value="PEDIDO" selected>PEDIDO</option>
-                        <option value="INGRESADO">INGRESADO</option>
-                        <option value="CONFRONTE">CONFRONTE</option>
-                        <option value="TERMINADO">TERMINADO</option>
-                    </select><br>
-                    <textarea id="agregaObservacion" name="textarea" rows="5" cols="40" onclick='this.value=""'>Ingrese más información sobre el caso</textarea>
-                </fieldset>
-                <input id="btnAgregadatos" type="submit" value="enviar" class="btnform">
-            </form> 
                 <div class="liquidacion__hoja liquidacion__hoja--datos">                    
-                    <table id="lista" class="liquidacion__tabla">
-                        
-                    </table>
+                    <table id="lista" class="liquidacion__tabla"></table>
                 </div>                
             </section>     
         </div>
