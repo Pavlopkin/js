@@ -38,15 +38,10 @@ $("#formAgrega").submit(function (e) {
     /*-----------------toma datos de inputs------------------*/
     eliminaDos()
     let agregaID = contribuyentes.length + 1
-    console.log("cantidad de objetos " + agregaID)
     let agregaGestor = document.getElementById('selectorGestor').value;
-    console.log("gestor" + agregaGestor)
     let agregaEstado = document.getElementById('agregaEstado').value;
-    console.log("estado" + agregaEstado);
     let agregaObservacion = formulario.agregador.children[11].value;
-    console.log("observacion" + agregaObservacion);
     let nuevoNombre = formulario.agregador.children[1].value;
-    console.log("nombre" + nuevoNombre);
     contribuyentes.push({id: agregaID, gestor: agregaGestor, nombre:nuevoNombre.toUpperCase(), estado:agregaEstado, observaciones: agregaObservacion.toUpperCase()});
     muestraPantalla()
     document.getElementById('formAgrega').reset();
@@ -54,11 +49,11 @@ $("#formAgrega").submit(function (e) {
 /*-----------boton que activa el formulario para agregar casos---------------------*/
 $("#btnAgregar").click(function (){   
     $("#formCasos").hide(); 
-    $("#formAgrega").slideDown(1000);
+    $("#formAgrega").fadeIn(1000);
 });
 /*-------------------cierra el formulario----------------------------------------*/
 $("#formAgrega p").click(function (){    
-    $("#formAgrega").slideUp(1000);
+    $("#formAgrega").fadeOut(1000);
 });
 /*//////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////cambia los datos de uno de los objetos de array//////////////////////////*/
@@ -75,13 +70,9 @@ e.preventDefault();
 let formulario = e.target;
 /*-----------------toma datos de inputs------------------*/
 let identificador = document.getElementById('selectorCasos').value;
-console.log("identificador" + identificador)
 let identificaEstado = document.getElementById('selectorEstados').value;
-console.log(identificaEstado);
 let nuevaObservacion = formulario.modificador.children[6].value;
-console.log("observacion" + nuevaObservacion);
 let nuevoEstado = formulario.modificador.children[5].value;
-console.log("estado" + nuevoEstado);
 cambiaDatos(identificador, nuevaObservacion, nuevoEstado);
 muestraPantalla()
 document.getElementById('formCasos').reset();
@@ -89,11 +80,11 @@ document.getElementById('formCasos').reset();
 /*---------------------boton que activa el formulario para cambiar datos--------------*/
 $("#btnCambiar").click(function (){  
     $("#formAgrega").hide();  
-    $("#formCasos").slideDown(1000);
+    $("#formCasos").fadeIn(1000);
 });
 /*---------------------cierra el formulario----------------------------------*/
 $("#formCasos p").click(function (){    
-    $("#formCasos").slideUp(1000);
+    $("#formCasos").fadeOut(1000);
 });
 /*////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////APLICANDO CAMBIOS EN EL DOM/////////////////////////////////////////
@@ -201,7 +192,7 @@ botonEstado.onclick = () =>{ordenEstado()};
 let botonID = document.getElementById("btnID");
 botonID.onclick = () =>{ordenId()};
 
-ordenId();
+
 
 
 

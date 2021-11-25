@@ -10,15 +10,14 @@ $(".container").css({"display": "none"});
 $(".caja__presentacionDos").css({"display": "none"});
 $(".caja__presentacion").css({"background-image": "url(./assets/portadafondo.JPG)", 
 "width": "100vw", "height": "100vh", "display": "flex", "justify-content": "center",
-"animation-name": "aparece", "animation-duration": "2s", "align-items": "flex-end", 
-"background-size": "cover", "padding": "120px"});
+ "align-items": "flex-end", "background-size": "cover", "padding": "120px"});
 $("#btnEntrar").css({"background": "rgb(4, 108, 226)", 
 "width": "100px", "height": "60px", "border-radius": "30%", "font-weight": "800",
 "font-size":"1.5em", "color": "white"})
 .hide()
-.delay(1000)
+.delay(500)
 .fadeIn(500);
-/*----------------otorga fncionamiento al boton Entrar--------------------------------*/
+/*----------------acción que realiza el botón entrar--------------------------------*/
 $("#btnEntrar").click(function (){
     $(".caja__presentacionDos").slideDown("1500");
     $(".caja__presentacion").slideUp("1500");
@@ -40,8 +39,7 @@ $("body").append(`<div class="caja__presentacionDos">
     </div>`);
 /*---------------aplica estilo a los botones---------------------*/
 $(".caja__presentacionDos").css({"background": "linear-gradient(295deg, rgba(0,11,221,1) 0%, rgba(56,157,175,1) 49%, rgba(16,97,255,1) 100%)", 
-"width": "100vw", "height": "100vh", "animation-name": "aparece", "animation-duration": "2s",
-"padding-top": "150px"});
+"width": "100vw", "height": "100vh","padding-top": "150px"});
 $(".caja__presentacionDos section").css({"width": "90%", 
 "margin": "auto", "display": "flex", "justify-content": "center"});
 $(".caja__presentacionDos a").css({"background-color": "white", "box-shadow": "-1px 1px 63px -7px rgba(255,251,54,0.75)",
@@ -49,7 +47,5 @@ $(".caja__presentacionDos a").css({"background-color": "white", "box-shadow": "-
 $(".foto__menu").css({"background-image": "url(./assets/calculadora.png)", 
 "width": "200px", "height": "200px", "display": "flex", "background-size": "cover", "margin": "auto"});
 $(".foto__menu--dos").css({"background-image": "url(./assets/base.png)"});
-$(".textoMenu").css({"color": "rgb(5, 106, 221)", "font-weight": "800", "font-size": "1.5em"}); 
+$(".textoMenu").css({"color": "black", "font-weight": "800", "font-size": "1.5em"}); 
 $(".menuInteractivo").css({"text-decoration": "none", "text-align": "center"});
-
-

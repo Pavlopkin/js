@@ -42,15 +42,6 @@ body{
 .menu{
     width: 30%;
 }
-.menuDerecha{
-    width: 65%;
-    text-align: center;
-    display: flex;
-    justify-content: flex-end;
-    label{
-        color: white;
-    }
-}
 .contenido{
     overflow: hidden;
     width: 100%;
@@ -60,102 +51,12 @@ body{
     background: linear-gradient(295deg, rgba(0,11,221,1) 0%, rgba(56,157,175,1) 49%, rgba(16,97,255,1) 100%); 
     padding: 30px 10px;
     box-sizing: border-box;
-    .contenido__presentacion{
-        width: auto;
-        height: auto;
-        padding: 30px;
-        margin: 50px auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        animation-name: aparece;
-        animation-duration: 2s;
-    }
-    .contenido__mensaje{
-        color: rgb(255, 255, 255);
-        font-size: 2em;
-        font-weight: 800;
-        font-family: Arial, Helvetica, sans-serif;
-        text-shadow: black 2px 2px;
-        text-align: center;
-        animation-name: colores;
-        animation-duration: 3s;
-        animation-iteration-count: infinite;
-    }
 }
 .contenido--datos{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content:flex-start;
-}
-.imprime{
-    margin-top: 50px;
-}
-.liquidacion{
-    animation-name: aparece;
-    animation-duration: 1s;
-    width: 80%;
-    height: auto;
-    margin: auto;
-    padding: 25px;
-    
-    text-align: center;
-    box-sizing: border-box;
-    .liquidacion__titulo{
-        text-align: center;
-        text-shadow: white 2px 2px;
-    }
-    .liquidacion__hoja{
-        animation-name: aparece;
-        animation-duration: 2s;
-        background-image: url(../assets/cuadricula.jpg);
-        box-shadow: inset 0px 0px 15px 8px rgba(0,0,0,0.6);
-        width: 90%;
-        height: auto;
-        min-height: 200px;
-        margin: 20px auto;
-        padding: 50px 20px;
-        box-sizing: border-box;
-        p{
-            display: inline-block;
-            margin: 5px 20px;
-        }
-        
-    }
-    .liquidacion__hoja--datos{
-        width: 98%;
-        padding: 50px 5px;
-    }
-    .liquidacion__boton{
-        padding: 5px;
-    }
-    .liquidacion__boton:hover{
-        background-color: rgba(27, 189, 230, 0.418);
-        transition: 2s;
-    }
-    .liquidacion__subTitulos{
-        list-style: none;
-        font-weight: 800;
-        text-align: center;
-        display: block;
-        li{
-            list-style: none;
-            text-align: center;
-            font-weight: 600;
-            margin: 10px 0px 10px -25px;
-        }
-    }
-}
-.liquidacion--datos{
-    width: 98%;
-}
-.nota{
-    margin-top: 50px;
-    .nota__lista{
-        list-style: none;
-        font-weight: 600;
-    }
 }
 .footer{
     background: rgb(0,11,221);
@@ -165,79 +66,6 @@ background: linear-gradient(295deg, rgba(0,11,221,1) 0%, rgba(56,157,175,1) 49%,
     color: white;
     text-align: center;
     padding: 30px;
-}
-.prueba{
-    width: 500px;
-    height: 100px;
-    background-color: red;
-}
-.submenu{
-    width: 100%;
-    height: auto;
-}
-#usuario{
-    display: flex;
-    list-style: none;
-    padding-top: 10px;
-    li{
-        margin-right: 25px;   
-        animation-name: aparece;     
-        animation-duration: 2s;
-        color: rgb(49, 255, 255);
-        font-weight: 800;
-    }
-    img{
-        width: 30px;
-        height: 30px;
-        padding: 3px;
-        border-radius: 50%;
-        background-color: rgb(49, 255, 255);
-    }
-}
-#cambia{
-    width: 100%;
-    height: 300px;
-    margin: auto;
-    position: fixed;
-    text-align: center;
-}
-.flotante{
-    width: 35%;
-    height: 300px;
-    background-color: rgba(15, 94, 211, 0.925);
-    box-shadow: 2px 4px 35px 30px rgba(0, 0, 0, 0.84) inset;
-    color: rgb(255, 255, 255);
-    font-weight: 900;
-    font-size: 1em;
-    border-radius: 10%;
-    padding: 50px 15px;
-    box-sizing: border-box;
-    text-align: center;
-    margin: auto;
-    animation-name: aparece;
-    animation-duration:2s;
-        span{
-            text-decoration: underline;
-        }
-}
-.cerrar{
-    color: rgb(255, 255, 255);
-    text-align: center;
-    margin: auto;
-    cursor: pointer;
-    font-size: 1em;
-    text-decoration: none;
-    font-weight: 800;
-    padding: 10px;
-    border: 2px black;
-    border-radius: 50%;
-    background-color: rgba(15, 94, 211, 0.925);
-    animation-name: aparece;
-    animation-duration:2s;
-}
-.cerrar:hover{
-    color: rgb(175, 14, 224);
-    transition: 1s;
 }
 .liquidacion__tabla{
     margin: auto;
@@ -256,22 +84,6 @@ background: linear-gradient(295deg, rgba(0,11,221,1) 0%, rgba(56,157,175,1) 49%,
     background-color: black;
     color: white;
     font-size: 1.5em;
-}
-.menu__datos{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    width: 98%;
-    height: auto; 
-    margin: auto;
-    background-color: rgba(240, 255, 240, 0.452);
-    padding: 10PX;
-    animation-name: aparece;
-    animation-duration: 1s;
-    box-sizing: border-box;
-}
-.space{
-    width: 10px;
 }
 #liquidacion{
     margin: auto;
@@ -309,20 +121,19 @@ background: linear-gradient(295deg, rgba(0,11,221,1) 0%, rgba(56,157,175,1) 49%,
         font-weight: 800;
         margin-bottom: 25px;
     }
-    
     fieldset{
         width: 80%;
-        background-color: rgba(255, 255, 255, 0.219);
-        padding: 5px;
-        margin: 15px auto;
-        border-radius: 15%;
+        background-color: rgba(255, 255, 255, 0.349);
+        padding: 3px;
+        margin: 7px auto;
+        border-radius: 10%;
         text-align: center;
         input{
             font-weight: 800;
         }
         label{
             font-weight: 700;
-            font-size: 1.3em;
+            font-size: 1.2em;
         }
     }
 }
@@ -341,50 +152,10 @@ input{
 .enfasis{
     font-weight: 800;
 }
-
 .btnDatos:hover{
     background-color: blue;
     color: white;
     transition: 1s;
-}
-.enlacesDiv{
-    text-decoration: none;
-}
-.secciones{
-    width: 330px;
-    height: 330px;
-    margin: 25px;
-    padding: 5px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 25%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    h3{
-        text-decoration: none;
-        color: black;
-        font-family:Verdana, Geneva, Tahoma, sans-serif;
-        font-weight: 800;
-        text-align: center;
-        margin-top: 5px;  
-    }
-}
-.secciones:hover{
-    box-shadow: 0px 0px 110px 11px rgba(19, 114, 238, 0.75) inset;
-    transform: scale(1.1,1.1);
-    transition: 1s;
-}
-.fotoLiq{
-    background-image: url(../assets/calculadora.png);
-    background-size: cover;
-    width: 90%;
-    height: 80%;
-}
-.fotoDat{
-    background-image: url(../assets/base.png);
-    background-size: cover;
-    width: 90%;
-    height: 80%;
 }
 #stasa{
     display: none;
@@ -441,20 +212,11 @@ input{
     display: none;
 }
 #btnEnviar{
-    display: none;
-   
-}
-#btnEnviar:hover{
-    background-color: rgb(167, 124, 236);
-    transition: 2s;
+    display: none;  
 }
 #btnLimpiar{
     display: none;
 
-}
-#btnLimpiar:hover{
-    background-color: rgb(167, 124, 236);
-    transition: 2s;
 }
 #tituloLiquidacion{
     display: none;
@@ -485,19 +247,6 @@ input{
 #itemCuatro{
     display: none;
 }
-#ajax{
-    display: flex;
-    flex-wrap: wrap;
-    #per{
-        background-color: rgb(182, 111, 5);
-        width: 30%;
-        height: auto;
-        padding: 20px;
-        border: solid 2px black;
-        text-align: center;
-        margin: 10px
-    }
-}
 #formCasos{
     text-align: center;
     background-color: rgba(5, 72, 173, 0.966);
@@ -509,6 +258,7 @@ input{
     z-index: 3;
     textarea{
         padding: 10px;
+        max-width: 80%;
     }
     p{
         background-color: rgb(255, 255, 255);
@@ -549,8 +299,6 @@ input{
     margin: 10px;
     font-weight: 700;
 }
-
-
 #formAgrega{
     display: none;
     text-align: center;
@@ -562,6 +310,7 @@ input{
     z-index: 2;
     textarea{
         padding: 10px;
+        max-width: 80%;
     }
     p{
         background-color: white;
@@ -614,13 +363,17 @@ input{
     input{
         border: solid 1px rgb(1, 8, 100);
         border-radius: 15%;
-        padding: 3px;
+        padding: 2px;
         text-align: center;
     }
-    button{
-        border: solid 1px rgb(1, 8, 100);
+    .btnLiq{
+        padding: 5px;
         border-radius: 15%;
-        padding: 3px;
-        text-align: center;
+        width: 80px;
+        font-weight: 700;
+        color: rgb(10, 80, 233);
+    }
+    .btnLiq:hover{
+        box-shadow: yellow -2px 5px inset;
     }
 }

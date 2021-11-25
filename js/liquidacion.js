@@ -97,28 +97,22 @@ function calculaLiquidacion(valoresIngresados){
     let iva= 0;
     /*calcula intereses*/
     let intereses = valoresIngresados.monto  * (valoresIngresados.porcentaje/100) *  (valoresIngresados.dias/365);
-    console.log(intereses);
     /*punitorios*/
     if (document.getElementById('radio1').checked){
         intPunitorios = intereses * 0.5;
-        console.log(intPunitorios);
     }
     else if(document.getElementById('radio2').checked){
         intPunitorios = 0;
-        console.log(intPunitorios);
     }
     /*iva*/
     if (document.getElementById('radio8').checked){   
         iva = ((intereses+ intPunitorios) * 0.21);
-        console.log(iva);
     }
     else if(document.getElementById('radio9').checked){
         iva = 0;
-        console.log(iva);
     }
     /*subtotal*/
     subtotal = (parseFloat(valoresIngresados.monto) + parseFloat(intereses) + parseFloat(intPunitorios) + iva);
-        console.log(subtotal);
     /*tasa*/
     if (document.getElementById('radio3').checked){
         tasa = valoresIngresados.monto * 0.03;
@@ -137,7 +131,6 @@ function calculaLiquidacion(valoresIngresados){
         sTasa = 0;
     }
     let totalLiquidacion = subtotal + tasa + sTasa;
-    console.log(totalLiquidacion);
     /*reune los resultados de la liquidación*/
     const rubrosLiquidacion = {monto: valoresIngresados.monto, porcentaje: valoresIngresados.porcentaje, fecha: valoresIngresados.mensajeFecha, intereses: intereses, intPunitorios: intPunitorios, iva: iva, subtotal: subtotal, tasa: tasa, sTasa: sTasa, totalLiquidacion: totalLiquidacion}
     muestraResultado(rubrosLiquidacion);
@@ -211,6 +204,11 @@ function muestraResultado(rubrosLiquidacion){
     if (rubrosLiquidacion.sTasa === 0){
         $("#resultadoST").hide();
     }
+    if ((isNaN(rubrosLiquidacion.intereses))&&(rubrosLiquidacion.tasa === 0)){
+        $("#capital").hide();
+        $("#atencion").show();
+    }
+    
 }
 /*---------------controla desplegable sobre tasa en formulario #sTasa-------------*/
 $("#radio4").click(function() {
@@ -244,6 +242,8 @@ function formularioTasa(){
     $("#btnLimpiar").slideDown(300);
     $(".form ol").hide();
     $(".form h4").hide();
+    $("#radio5").hide();
+    $("#noTasa").hide();
 }
 /*------------------------------activa calculadora de liquidación tasa anual-----------*/
 $("#btnLiq").click(function (){
@@ -267,6 +267,8 @@ function formularioLiq(){
     $("#btnLimpiar").slideDown(300);
     $(".form ol").hide();
     $(".form h4").hide();
+    $("#radio5").show();
+    $("#noTasa").show();
 }
 /*-------------aplica cambios en el DOM para mostar el resultado-----------------*/
 $("#btnEnviar").click(function (){
@@ -308,14 +310,11 @@ $("#itemCinco").css("color", "white")
     .hide()
     .delay(17000)
     .fadeIn("slow");
-
-
 /*--------------aplica la animación a los items del instructivo-----------*/
 animaUno("#itemUno", 1500);
 animaUno("#itemDos", 5000);
 animaUno("#itemTres", 8500);
 animaUno("#itemCuatro", 12000);
-
 /*--------------aplica estilos al instructivo----------------------------*/
 $(".form h4").css({"font-size": "3em", "font-weight": "800"});
 $(".form li").css({"font-size": "1.5em", "margin-top": "50px", "font-weight": "800"});
