@@ -31,14 +31,18 @@ _6) Sobre Tasa de Justicia: solo en caso de Tasa 2,2% (opcional) _
 _7) Total: Monto + Interés compensatorio + Intereses punitorios + IVA + Tasa de Justicia + Sobre Tasa de Justicia _
 
 ### Datos
-_ Planilla de seguimiento de casos: Muestra en pantalla los rubros ID, Gestor, Contribuyente, Estado y Observaciones. Permite realizar las siguientes operaciones: _
+_ Planilla de seguimiento de casos: Muestra en pantalla los rubros ID, Gestor, Contribuyente, Estado y Observaciones.
+
+Permite realizar las siguientes operaciones: _
 
 _ 1) Ordenar por Gestor, Nombre, Estado, ID _
 
 _2) Modificar: Busca casos por Nombre y modifica su estado y observacion._ 
 
-_3) Agregar: Agrega un nuevo caso, se asigna un ID y permite agregar el contenido de los restantes rubros.
-_
+_3) Agregar: Agrega un nuevo caso, se asigna un ID y permite agregar el contenido de los restantes rubros._
+
+La tabla toma sus datos de la siguiente Api: https://rickandmortyapi.com/api/character
+
 ###Un vistazo al código utilizado:
 ####Javascript code
 
