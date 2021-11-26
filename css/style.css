@@ -105,7 +105,7 @@ body {
   padding: 25px;
   margin: 50px auto;
   height: auto;
-  min-height: 400px;
+  min-height: 350px;
   animation-name: aparece;
   animation-duration: 1s;
   box-sizing: border-box;
@@ -117,7 +117,7 @@ body {
     font-weight: 800;
     margin-bottom: 25px; }
   .form fieldset {
-    width: 80%;
+    width: 90%;
     background-color: rgba(255, 255, 255, 0.349);
     padding: 3px;
     margin: 7px auto;
@@ -346,4 +346,4 @@ input {
     font-weight: 700;
     color: #0a50e9; }
   #formularioDos .btnLiq:hover {
-    box-shadow: yellow -2px 5px inset; }
+    box-shadow: 0px 0px 9px 5px rgba(50, 163, 228, 0.48) inset; }
