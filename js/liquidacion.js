@@ -28,7 +28,6 @@ $("#formularioDos").submit(function (e) {
     let dias = difference/(1000 * 3600 * 24);
     if (fecha2 < fecha){
         monto = 0;
-        intereses = 0;
     }
     let mensajeFecha = day+"/"+month+"/"+year+" hasta "+day2+"/"+month2+"/"+year2; /*--ordena fecha para mostrar en DOM ---*/
     /*reune los valores que se ulizarán para calcular la liquidación*/
@@ -269,6 +268,12 @@ function formularioLiq(){
     $(".form h4").hide();
     $("#radio5").show();
     $("#noTasa").show();
+    /*elimina los bordes rojos cuando retorna de un error*/
+    $("#dia1").css({"border": "solid 1px rgb(1, 8, 100)"});
+    $("#dia2").css({"border": "solid 1px rgb(1, 8, 100)"});
+    $("#mes1").css({"border": "solid 1px rgb(1, 8, 100)"});
+    $("#mes2").css({"border": "solid 1px rgb(1, 8, 100)"});
+    $("#anio2").css({"border": "solid 1px rgb(1, 8, 100)"});
 }
 /*-------------aplica cambios en el DOM para mostar el resultado-----------------*/
 $("#btnEnviar").click(function (){

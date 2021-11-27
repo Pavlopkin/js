@@ -44,7 +44,7 @@ _3) Agregar: Agrega un nuevo caso, se asigna un ID y permite agregar el contenid
 La tabla toma sus datos de la siguiente Api: https://rickandmortyapi.com/api/character
 
 ###Un vistazo al código utilizado:
-####Javascript code
+####Javascript code (liquidaciones.js)
 
 ```function calculaLiquidacion(valoresIngresados){ 
     let intPunitorios = 0;

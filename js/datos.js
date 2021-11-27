@@ -16,19 +16,15 @@ $.get(URLGET, function (respuesta, estado) {
 /*//////////////////////////////////////////////////////////////////////////////////////////////////    
 ////////////////////////////////////FUNCIONES///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////*/
-/*----------------------------------Crea y elimina el nodo en DOM------------------------------ */
+/*----------------------------------Crea y elimina un nodo en el DOM------------------------------ */
 creaNodo();
 muestraPantalla();
 function creaNodo(){
-    let padre = document.getElementById("lista");
-    let a = document.createElement("div");
-            a.innerHTML = "<table id='tabla'>"
-            padre.appendChild(a);
+    $("#lista").append(`<table id='tabla'>`);
 }
 function eliminaDos(){
-    var getChild2 = document.getElementById("tabla");  
-    getChild2.parentNode.removeChild(getChild2);
-    creaNodo();
+    $("#tabla").remove();
+    creaNodo();  
 }
 /*//////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////agrega un objeto al array////////////////////////////////*/
