@@ -40,7 +40,6 @@ $("#formularioDos").submit(function (e) {
         }
     }
     const valoresIngresados1 = new valoresIngresados(monto, porcentaje, dias, mensajeFecha);
-    console.log(valoresIngresados1);
     calculaLiquidacion(valoresIngresados1);
     document.getElementById('formularioDos').reset();
 });
@@ -155,7 +154,6 @@ function calculaLiquidacion(valoresIngresados1){
         }
     }
     const rubrosLiquidacion1 = new rubrosLiquidacion(valoresIngresados1.monto, valoresIngresados1.porcentaje, valoresIngresados1.mensajeFecha, intereses, intPunitorios, iva, subtotal, tasa, sTasa, totalLiquidacion);
-    console.log(rubrosLiquidacion1);
     muestraResultado(rubrosLiquidacion1);
 }
 /*//////////////////////////////Muestra el resultado en el DOM////////////////////////
