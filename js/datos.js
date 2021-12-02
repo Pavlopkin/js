@@ -66,7 +66,6 @@ e.preventDefault();
 let formulario = e.target;
 /*-----------------toma datos de inputs------------------*/
 let identificador = document.getElementById('selectorCasos').value;
-let identificaEstado = document.getElementById('selectorEstados').value;
 let nuevaObservacion = formulario.modificador.children[6].value;
 let nuevoEstado = formulario.modificador.children[5].value;
 cambiaDatos(identificador, nuevaObservacion, nuevoEstado);
@@ -116,77 +115,66 @@ function muestraPantalla(){
     cabecera();
     estructuraTabla();
 }
-/*--------------------------ordena el listado por Nombre-----------------------------------*/
-function ordenNombre(){
+/*--------------------------ordena el listado----------------------------------------------*/
+function orden(referenciaOrden){
     eliminaDos();
     creaNodo();
-    contribuyentes.sort(function(a,b) {
-        if (a.nombre > b.nombre) {
-        return 1;
-        } else if (a.nombre < b.nombre) {
-        return  -1;
-        } 
-        return 0;
-    });
-    cabecera();
-    estructuraTabla();
+    switch (referenciaOrden) {
+        case "estado":
+            contribuyentes.sort(function(a,b) {
+                if (a.estado > b.estado) {
+                return 1;
+                } else if (a.estado < b.estado) {
+                return  -1;
+                } 
+                return 0;
+            });
+            break;
+        case "gestor":
+            contribuyentes.sort(function(a,b) {
+                if (a.gestor > b.gestor) {
+                return 1;
+                } else if (a.gestor < b.gestor) {
+                return  -1;
+                } 
+                return 0;
+            });
+            break;
+        case "nombre":
+            contribuyentes.sort(function(a,b) {
+                if (a.nombre > b.nombre) {
+                return 1;
+                } else if (a.nombre < b.nombre) {
+                return  -1;
+                } 
+                return 0;
+            });
+            break;
+        case "id":
+            contribuyentes.sort(function(a,b) {
+                if (a.id > b.id) {
+                return 1;
+                } else if (a.id < b.id) {
+                return  -1;
+                } 
+                return 0;
+            });
+            break;
+        }
+    muestraPantalla()
 }
-/*--------------------------ordena el listado por Estado-----------------------------------*/
-function ordenEstado(){
-    eliminaDos();
-    creaNodo();
-    contribuyentes.sort(function(a,b) {
-        if (a.estado > b.estado) {
-        return 1;
-        } else if (a.estado < b.estado) {
-        return  -1;
-        } 
-        return 0;
-    });
-    cabecera();
-    estructuraTabla();
-}
-/*--------------------------ordena el listado por gestor-----------------------------------*/
-function ordenGestor(){
-    eliminaDos();
-    creaNodo();
-    contribuyentes.sort(function(a,b) {
-        if (a.gestor > b.gestor) {
-        return 1;
-        } else if (a.gestor < b.gestor) {
-        return  -1;
-        } 
-        return 0;
-    });
-    cabecera();
-    estructuraTabla();
-}
-function ordenId(){
-    eliminaDos();
-    creaNodo();
-    contribuyentes.sort(function(a,b) {
-        if (a.id > b.id) {
-        return 1;
-        } else if (a.id < b.id) {
-        return  -1;
-        } 
-        return 0;
-    });
-    cabecera();
-    estructuraTabla();
-}
-/*-------------------botones de filtros al listado---------------------------------------------*/
+/*-------------------botones para ordenar el listado---------------------------------------------*/
+let botonEstado = document.getElementById("btnEstado");
+botonEstado.onclick = () =>{orden("estado")};
+
 let botonGestor = document.getElementById("btnGestor");
-botonGestor.onclick = () =>{ordenGestor()};
+botonGestor.onclick = () =>{orden("gestor")};
 
 let botonNombre = document.getElementById("btnNombre");
-botonNombre.onclick = () =>{ordenNombre()};
-
-let botonEstado = document.getElementById("btnEstado");
-botonEstado.onclick = () =>{ordenEstado()};
+botonNombre.onclick = () =>{orden("nombre")};
 
 let botonID = document.getElementById("btnID");
-botonID.onclick = () =>{ordenId()};
+botonID.onclick = () =>{orden("id")};
 
 
 

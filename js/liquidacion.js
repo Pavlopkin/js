@@ -31,7 +31,16 @@ $("#formularioDos").submit(function (e) {
     }
     let mensajeFecha = day+"/"+month+"/"+year+" hasta "+day2+"/"+month2+"/"+year2; /*--ordena fecha para mostrar en DOM ---*/
     /*reune los valores que se ulizarán para calcular la liquidación*/
-    const valoresIngresados = {monto: monto, porcentaje: porcentaje, dias: dias, mensajeFecha:mensajeFecha};
+    class valores {
+        constructor(monto, porcentaje, dias, plazos){
+            this.monto = monto;
+            this.porcentaje = porcentaje;
+            this.dias = dias;
+            this.mensajeFecha = plazos;
+        }
+    }
+    const valoresIngresados = new valores(monto, porcentaje, dias, mensajeFecha);
+    console.log(valoresIngresados);
     calculaLiquidacion(valoresIngresados);
     document.getElementById('formularioDos').reset();
 });
@@ -111,7 +120,7 @@ function calculaLiquidacion(valoresIngresados){
         iva = 0;
     }
     /*subtotal*/
-    subtotal = (parseFloat(valoresIngresados.monto) + parseFloat(intereses) + parseFloat(intPunitorios) + iva);
+    let subtotal = (parseFloat(valoresIngresados.monto) + parseFloat(intereses) + parseFloat(intPunitorios) + iva);
     /*tasa*/
     if (document.getElementById('radio3').checked){
         tasa = valoresIngresados.monto * 0.03;
@@ -131,7 +140,22 @@ function calculaLiquidacion(valoresIngresados){
     }
     let totalLiquidacion = subtotal + tasa + sTasa;
     /*reune los resultados de la liquidación*/
-    const rubrosLiquidacion = {monto: valoresIngresados.monto, porcentaje: valoresIngresados.porcentaje, fecha: valoresIngresados.mensajeFecha, intereses: intereses, intPunitorios: intPunitorios, iva: iva, subtotal: subtotal, tasa: tasa, sTasa: sTasa, totalLiquidacion: totalLiquidacion}
+    class resultados {
+        constructor(monto, porcentaje, fecha, intereses, intPunitorios, iva, subtotal, tasa, sTasa, totalLiquidacion){
+            this.monto = monto;
+            this.porcentaje = porcentaje;
+            this.fecha = fecha;
+            this.intereses = intereses;
+            this.intPunitorios = intPunitorios; 
+            this.iva = iva;
+            this.subtotal = subtotal;
+            this.tasa = tasa;
+            this.sTasa = sTasa;
+            this.totalLiquidacion = totalLiquidacion;
+        }
+    }
+    const rubrosLiquidacion = new resultados(valoresIngresados.monto, valoresIngresados.porcentaje, valoresIngresados.mensajeFecha, intereses, intPunitorios, iva, subtotal, tasa, sTasa, totalLiquidacion);
+    console.log(rubrosLiquidacion);
     muestraResultado(rubrosLiquidacion);
 }
 /*//////////////////////////////Muestra el resultado en el DOM////////////////////////
@@ -243,6 +267,7 @@ function formularioTasa(){
     $(".form h4").hide();
     $("#radio5").hide();
     $("#noTasa").hide();
+    $("#stasa").hide();
 }
 /*------------------------------activa calculadora de liquidación tasa anual-----------*/
 $("#btnLiq").click(function (){
@@ -268,6 +293,7 @@ function formularioLiq(){
     $(".form h4").hide();
     $("#radio5").show();
     $("#noTasa").show();
+    $("#stasa").hide();
     /*elimina los bordes rojos cuando retorna de un error*/
     $("#dia1").css({"border": "solid 1px rgb(1, 8, 100)"});
     $("#dia2").css({"border": "solid 1px rgb(1, 8, 100)"});
